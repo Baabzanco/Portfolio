@@ -16,10 +16,10 @@ export const ProjectDetailPage: React.FC = () => {
       <main className="relative z-10 pt-28 pb-24 min-h-[70vh] flex items-center">
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-[#F04427]">
-            404 · Plate Not Found
+            404 · Case Study Not Found
           </p>
           <h1 className="mt-4 font-display text-4xl sm:text-5xl font-semibold text-[#252522]">
-            This case study route does not exist.
+            This project route does not exist.
           </h1>
           <Link
             to="/"
@@ -87,7 +87,7 @@ export const ProjectDetailPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Full-Width Hero Plate */}
+          {/* Full-Width Hero UI Showcase */}
           <div className="mt-10 lg:mt-14 border border-[#C9C8BE] bg-[#E8E7DE]">
             <InkReveal
               src={project.heroImage}
@@ -144,7 +144,7 @@ export const ProjectDetailPage: React.FC = () => {
                 ))}
               </ol>
 
-              {/* Technology Stack (clean unboxed text list with separators) */}
+              {/* Technology Stack */}
               <div className="mt-8">
                 <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#77776F]">
                   Technology Stack
@@ -171,7 +171,7 @@ export const ProjectDetailPage: React.FC = () => {
       <section className="border-b border-[#C9C8BE] bg-[#E8E7DE]/40">
         <SectionHeaderBar
           number="02"
-          label="Process Architecture"
+          label="Design & Build Process"
           metaRight="03 PHASES"
         />
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 py-14 lg:py-20">
@@ -209,7 +209,7 @@ export const ProjectDetailPage: React.FC = () => {
               >
                 <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-[#77776F] mb-4">
                   <span>{preview.label}</span>
-                  <span>PLATE 0{idx + 1}</span>
+                  <span>SCREEN 0{idx + 1}</span>
                 </div>
                 <div className="aspect-[16/10] border border-[#C9C8BE] bg-[#F2F1E9] p-5 flex flex-col justify-between">
                   <div className="flex items-center justify-between border-b border-[#C9C8BE] pb-3 font-mono text-[10px] text-[#77776F]">
@@ -229,7 +229,7 @@ export const ProjectDetailPage: React.FC = () => {
                   </div>
                   <div className="flex items-center justify-between font-mono text-[10px] text-[#77776F]">
                     <span>SWISS 12-COL</span>
-                    <span className="text-[#F04427]">VERIFIED SPEC</span>
+                    <span className="text-[#F04427]">UI SPEC</span>
                   </div>
                 </div>
                 <p className="mt-4 text-sm text-[#77776F]">{preview.caption}</p>
@@ -276,7 +276,7 @@ export const ProjectDetailPage: React.FC = () => {
                 <div
                   className={`h-44 border border-[#C9C8BE] p-6 flex flex-col justify-between transition-colors duration-300 ${
                     demoStateIdx === 0
-                      ? 'bg-[#F2F1E9] arch-blueprint-bg'
+                      ? 'bg-[#F2F1E9] ui-canvas-grid'
                       : demoStateIdx === 1
                         ? 'bg-[#E8E7DE]'
                         : 'bg-[#252522] text-[#F2F1E9]'
@@ -306,7 +306,7 @@ export const ProjectDetailPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Next Project Plate */}
+      {/* Next Project Link */}
       <section className="border-b border-[#C9C8BE] bg-[#E8E7DE]/55">
         <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 py-14 lg:py-20">
           <Link

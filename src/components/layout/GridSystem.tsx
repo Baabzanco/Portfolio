@@ -1,10 +1,10 @@
 import React from 'react';
 
 /**
- * Persistent full-page vertical architectural grid rails (Swiss 4-column desktop guide lines).
- * Stays subtle behind page content to establish consistent technical structure across sections.
+ * Persistent full-page vertical modular grid rails (Swiss 4-column desktop guides).
+ * Provides editorial rhythm and visual alignment across all sections.
  */
-export const ArchitecturalBackdropGrid: React.FC = () => {
+export const EditorialGridBackdrop: React.FC = () => {
   return (
     <div
       aria-hidden="true"
@@ -21,7 +21,7 @@ export const ArchitecturalBackdropGrid: React.FC = () => {
 };
 
 /**
- * Architectural registration cross (+) used at grid intersections.
+ * Precision registration cross (+) marker used at grid intersections.
  */
 export const RegistrationMark: React.FC<{
   className?: string;
@@ -47,8 +47,7 @@ interface SectionHeaderBarProps {
 }
 
 /**
- * Consistent architectural header band at the top of each chapter.
- * Uses clean unboxed editorial typography—zero pill badges or mechanical comment syntax.
+ * Consistent editorial header band at the top of each section.
  */
 export const SectionHeaderBar: React.FC<SectionHeaderBarProps> = ({
   number,
@@ -59,7 +58,7 @@ export const SectionHeaderBar: React.FC<SectionHeaderBarProps> = ({
     <div className="relative z-10 border-t border-b border-[#C9C8BE] bg-[#F2F1E9]/85">
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-12 items-center py-3 text-xs">
-          <div className="col-span-6 lg:col-span-3 flex items-center gap-3">
+          <div className="col-span-6 lg:col-span-4 flex items-center gap-3">
             <RegistrationMark accent />
             <span className="font-mono text-[11px] font-medium tracking-[0.12em] text-[#252522] tabular-nums">
               {number}
@@ -71,7 +70,7 @@ export const SectionHeaderBar: React.FC<SectionHeaderBarProps> = ({
               {label}
             </span>
           </div>
-          <div className="hidden lg:block lg:col-span-6" />
+          <div className="hidden lg:block lg:col-span-5" />
           <div className="col-span-6 lg:col-span-3 text-right font-mono text-[11px] tracking-[0.08em] text-[#77776F] tabular-nums">
             {metaRight || 'AMIR MORADSALEH'}
           </div>

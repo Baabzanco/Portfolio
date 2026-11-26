@@ -10,7 +10,7 @@ import { useSmoothScroll } from '../animations/SmoothScroll';
 gsap.registerPlugin(ScrollTrigger);
 
 type ViewportMode = 'desktop' | 'tablet' | 'mobile';
-type LayerMode = 'experience' | 'blueprint' | 'vectors';
+type InspectMode = 'surface' | 'grid' | 'motion';
 
 export const ExperienceSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -20,8 +20,9 @@ export const ExperienceSection: React.FC = () => {
   const floatCardBRef = useRef<HTMLDivElement | null>(null);
 
   const [viewportMode, setViewportMode] = useState<ViewportMode>('desktop');
-  const [layerMode, setLayerMode] = useState<LayerMode>('experience');
+  const [inspectMode, setInspectMode] = useState<InspectMode>('surface');
   const [activeSpecimenIdx, setActiveSpecimenIdx] = useState(0);
+  const [activeNavTab, setActiveNavTab] = useState('Work');
 
   const { reducedMotion } = useSmoothScroll();
 
@@ -68,7 +69,6 @@ export const ExperienceSection: React.FC = () => {
     return () => ctx.revert();
   }, [reducedMotion]);
 
-  // Subtle pointer-reactive architectural tilt on the interactive stage
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (reducedMotion || !stageRef.current || !browserLayerRef.current) return;
     const rect = stageRef.current.getBoundingClientRect();
@@ -103,21 +103,23 @@ export const ExperienceSection: React.FC = () => {
 
   const specimens = [
     {
-      label: 'Spatial Grid',
-      metric: '12 Columns · 40px Margin',
-      headline: 'Modular rhythm adapts across breakpoints without losing tension.',
+      label: 'Responsive Grid',
+      metric: '12 Columns · Fluid Breakpoints',
+      headline: 'Modular web layouts adapt seamlessly across desktop, tablet, and mobile.',
     },
     {
-      label: 'Motion State',
-      metric: '180ms Ease · GPU Transform',
-      headline: 'Every state transition reinforces spatial hierarchy and user intent.',
+      label: 'Interactive States',
+      metric: '180ms Ease · GPU Composited',
+      headline: 'Hover feedback, focus states, and micro-motion guide attention naturally.',
     },
     {
-      label: 'Type Architecture',
-      metric: 'Scale 1.414 · Balanced Measure',
-      headline: 'Expressive headlines balanced by disciplined technical metadata.',
+      label: 'Typography Scale',
+      metric: 'Ratio 1.414 · Balanced Measure',
+      headline: 'Expressive display headlines paired with calm, scannable interface copy.',
     },
   ];
+
+  const previewNavItems = ['Work', 'Systems', 'Motion'];
 
   return (
     <section
@@ -128,15 +130,15 @@ export const ExperienceSection: React.FC = () => {
       <SectionHeaderBar
         number="06"
         label="The Digital Experience"
-        metaRight="INTERACTIVE SPECIMEN LAB"
+        metaRight="INTERACTIVE INTERFACE LAB"
       />
 
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24">
-        {/* Top Row: Headline + Interactive Controls */}
+        {/* Top Row: Headline + Interactive Viewport & Layer Controls */}
         <div className="grid grid-cols-12 gap-8 items-end pb-10 border-b border-[#C9C8BE]">
           <div className="col-span-12 lg:col-span-7">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#F04427] mb-4">
-              Design × Engineering
+              Design × Frontend Engineering
             </p>
             <TextReveal
               as="h2"
@@ -145,15 +147,15 @@ export const ExperienceSection: React.FC = () => {
               className="font-display text-[2.4rem] sm:text-[3.6rem] lg:text-[4.6rem] font-semibold leading-[0.95] tracking-[-0.03em] text-[#252522]"
             />
             <p className="mt-5 max-w-xl text-[15px] leading-[1.65] text-[#77776F]">
-              Interfaces live in motion, viewport shifts, and pointer proximity. Inspect how responsive structure, blueprint geometry, and motion vectors operate together below.
+              Great websites come alive through responsive breakpoints, thoughtful UI tokens, and deliberate motion. Switch viewports and inspect the live interface layers below.
             </p>
           </div>
 
-          {/* Functional Segmented Controls: Viewport + Layer Inspection */}
+          {/* Functional Segmented Controls */}
           <div className="col-span-12 lg:col-span-5 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 lg:items-end xl:justify-end">
             <div>
               <span className="block font-mono text-[10px] uppercase tracking-[0.12em] text-[#77776F] mb-2">
-                Viewport Scale
+                Responsive Viewport
               </span>
               <div className="inline-flex border border-[#C9C8BE] bg-[#F2F1E9]">
                 {(
@@ -183,23 +185,23 @@ export const ExperienceSection: React.FC = () => {
 
             <div>
               <span className="block font-mono text-[10px] uppercase tracking-[0.12em] text-[#77776F] mb-2">
-                Inspection Layer
+                UI Inspector
               </span>
               <div className="inline-flex border border-[#C9C8BE] bg-[#F2F1E9]">
                 {(
                   [
-                    { id: 'experience', label: 'Surface' },
-                    { id: 'blueprint', label: 'Grid' },
-                    { id: 'vectors', label: 'Vectors' },
+                    { id: 'surface', label: 'Live UI' },
+                    { id: 'grid', label: 'Grid' },
+                    { id: 'motion', label: 'Motion' },
                   ] as const
                 ).map(({ id, label }) => (
                   <button
                     key={id}
                     type="button"
-                    onClick={() => setLayerMode(id)}
+                    onClick={() => setInspectMode(id)}
                     data-cursor="link"
                     className={`px-3 py-2 text-xs font-mono transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
-                      layerMode === id
+                      inspectMode === id
                         ? 'bg-[#F04427] text-white'
                         : 'text-[#77776F] hover:text-[#252522]'
                     }`}
@@ -212,41 +214,44 @@ export const ExperienceSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Interactive Layered Architectural Stage */}
+        {/* Interactive Layered Browser Stage */}
         <div
           ref={stageRef}
           onPointerMove={handlePointerMove}
           onPointerLeave={handlePointerLeave}
-          className="relative mt-10 lg:mt-14 border border-[#C9C8BE] bg-[#F2F1E9] arch-blueprint-bg p-5 sm:p-8 lg:p-14 overflow-hidden"
+          className="relative mt-10 lg:mt-14 border border-[#C9C8BE] bg-[#F2F1E9] ui-canvas-grid p-5 sm:p-8 lg:p-14 overflow-hidden"
         >
-          {/* Floating Left Architectural Annotation Card (Parallax) */}
+          {/* Floating Left Design Token Card (Parallax) */}
           <div
             ref={floatCardARef}
             className="hidden xl:block absolute left-8 top-10 z-20 w-56 border border-[#252522] bg-[#F2F1E9] p-4 shadow-[6px_6px_0_rgba(37,37,34,0.08)]"
           >
             <div className="flex items-center justify-between font-mono text-[10px] text-[#F04427]">
-              <span>LAYER 01</span>
+              <span>DESIGN TOKENS</span>
               <RegistrationMark accent />
             </div>
-            <p className="mt-2 font-display text-sm font-semibold text-[#252522]">
-              Responsive Geometry
-            </p>
-            <p className="mt-1 font-mono text-[11px] text-[#77776F] tabular-nums">
+            <div className="mt-3 flex items-center gap-2">
+              <span className="h-4 w-4 bg-[#F2F1E9] border border-[#252522]" title="#F2F1E9" />
+              <span className="h-4 w-4 bg-[#252522]" title="#252522" />
+              <span className="h-4 w-4 bg-[#F04427]" title="#F04427" />
+              <span className="font-mono text-[10px] text-[#77776F] ml-1">3 CORE</span>
+            </div>
+            <p className="mt-2 font-mono text-[11px] text-[#252522] tabular-nums">
               {viewportMode === 'desktop'
-                ? '1440px · 12-Col Swiss Grid'
+                ? '1440px · 12-Col Layout'
                 : viewportMode === 'tablet'
-                  ? '834px · 8-Col Modular'
-                  : '390px · 4-Col Touch Stack'}
+                  ? '834px · 8-Col Layout'
+                  : '390px · 4-Col Stack'}
             </p>
           </div>
 
-          {/* Floating Right Motion Annotation Card (Parallax) */}
+          {/* Floating Right Motion Spec Card (Parallax) */}
           <div
             ref={floatCardBRef}
             className="hidden xl:block absolute right-8 bottom-10 z-20 w-60 border border-[#C9C8BE] bg-[#252522] text-[#F2F1E9] p-4"
           >
             <div className="flex items-center justify-between font-mono text-[10px] text-[#F04427]">
-              <span>COMPOSITOR</span>
+              <span>MOTION SPEC</span>
               <span>60 FPS</span>
             </div>
             <p className="mt-2 font-display text-sm font-medium">
@@ -262,25 +267,48 @@ export const ExperienceSection: React.FC = () => {
             ref={browserLayerRef}
             className={`relative z-10 mx-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] border border-[#252522] bg-[#F2F1E9] shadow-[12px_12px_0_rgba(37,37,34,0.06)] ${frameWidthClass}`}
           >
-            {/* Browser Architectural Chrome */}
+            {/* Browser Top Bar */}
             <div className="flex items-center justify-between border-b border-[#C9C8BE] bg-[#E8E7DE] px-4 py-2.5">
               <div className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 border border-[#252522]" />
-                <span className="h-2.5 w-2.5 border border-[#252522]" />
-                <span className="h-2.5 w-2.5 bg-[#F04427]" />
+                <span className="h-2.5 w-2.5 rounded-full border border-[#252522]" />
+                <span className="h-2.5 w-2.5 rounded-full border border-[#252522]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#F04427]" />
               </div>
-              <div className="font-mono text-[10px] tracking-[0.1em] text-[#77776F] truncate px-3">
-                amirmoradsaleh.com / specimen / {viewportMode}
+              <div className="font-mono text-[10px] tracking-[0.08em] text-[#77776F] truncate px-3">
+                amirmoradsaleh.com / preview / {viewportMode}
               </div>
               <div className="font-mono text-[10px] text-[#252522] uppercase">
-                {layerMode}
+                {inspectMode}
+              </div>
+            </div>
+
+            {/* Simulated Live Website Header Navigation */}
+            <div className="flex items-center justify-between border-b border-[#C9C8BE] px-5 sm:px-7 py-3 bg-[#F2F1E9]">
+              <span className="font-display text-xs font-bold tracking-[0.08em] text-[#252522]">
+                AMIR.UI
+              </span>
+              <div className="flex items-center gap-4">
+                {previewNavItems.map((tab) => (
+                  <button
+                    key={tab}
+                    type="button"
+                    onClick={() => setActiveNavTab(tab)}
+                    className={`font-mono text-[10px] uppercase tracking-[0.1em] pb-0.5 transition-colors cursor-pointer ${
+                      activeNavTab === tab
+                        ? 'text-[#F04427] border-b border-[#F04427]'
+                        : 'text-[#77776F] hover:text-[#252522]'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
               </div>
             </div>
 
             {/* Browser Viewport Content */}
-            <div className="relative p-5 sm:p-7 min-h-[340px]">
-              {/* Optional Blueprint Grid Overlay */}
-              {(layerMode === 'blueprint' || layerMode === 'vectors') && (
+            <div className="relative p-5 sm:p-7 min-h-[320px]">
+              {/* Optional 6-Column UI Grid Overlay */}
+              {(inspectMode === 'grid' || inspectMode === 'motion') && (
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 z-20 grid grid-cols-6 gap-2 px-5 sm:px-7"
@@ -294,8 +322,8 @@ export const ExperienceSection: React.FC = () => {
                 </div>
               )}
 
-              {/* Optional Motion Vector SVG Overlay */}
-              {layerMode === 'vectors' && (
+              {/* Optional Motion Path Overlay */}
+              {inspectMode === 'motion' && (
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 600 320"
@@ -328,7 +356,7 @@ export const ExperienceSection: React.FC = () => {
                 >
                   <div>
                     <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#F04427]">
-                      Interactive Specimen · 0{activeSpecimenIdx + 1}
+                      {activeNavTab} · Specimen 0{activeSpecimenIdx + 1}
                     </span>
                     <h3 className="mt-2 font-display text-xl sm:text-2xl font-semibold leading-tight text-[#252522]">
                       {specimens[activeSpecimenIdx].headline}
@@ -355,7 +383,7 @@ export const ExperienceSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Right Media Plate inside Browser Frame */}
+                {/* Right Media Preview inside Browser Frame */}
                 <div
                   className={
                     viewportMode === 'mobile' ? 'col-span-1' : 'col-span-5'
@@ -363,17 +391,17 @@ export const ExperienceSection: React.FC = () => {
                 >
                   <div className="relative aspect-[4/3] border border-[#C9C8BE] bg-[#E8E7DE] overflow-hidden">
                     <img
-                      src={portfolioAssets.workExperimentalInterface}
-                      alt="Spatial interface architectural light study"
+                      src={portfolioAssets.workExperimentalInterfaceUi}
+                      alt="Layered interactive browser windows and responsive mobile design preview"
                       referrerPolicy="no-referrer"
                       loading="lazy"
                       className={`h-full w-full object-cover transition-all duration-500 ${
-                        layerMode === 'blueprint'
-                          ? 'opacity-25 grayscale'
+                        inspectMode === 'grid'
+                          ? 'opacity-30 grayscale'
                           : 'opacity-100 scale-100'
                       }`}
                     />
-                    <div className="absolute bottom-2 left-2 bg-[#F2F1E9]/90 px-2 py-0.5 font-mono text-[9px] text-[#252522] border border-[#C9C8BE]">
+                    <div className="absolute bottom-2 left-2 bg-[#F2F1E9]/92 px-2 py-0.5 font-mono text-[9px] text-[#252522] border border-[#C9C8BE]">
                       {specimens[activeSpecimenIdx].metric}
                     </div>
                   </div>

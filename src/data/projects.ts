@@ -31,7 +31,7 @@ export interface ProjectCaseStudy {
   interfacePreviewNotes: {
     label: string;
     caption: string;
-    layoutType: 'editorial-grid' | 'commerce-plinth' | 'spatial-canvas' | 'type-index';
+    layoutType: 'editorial-grid' | 'commerce-ui' | 'spatial-browser' | 'dashboard-ui';
   }[];
   interactionDemo: {
     title: string;
@@ -47,267 +47,267 @@ export const projects: ProjectCaseStudy[] = [
     slug: 'digital-commerce',
     number: '01',
     title: 'DIGITAL COMMERCE',
-    category: 'E-Commerce Architecture & Art Direction',
+    category: 'E-Commerce UI & Editorial Direction',
     year: '2026 · Placeholder',
     statusNote: 'Editable Case Study Template — Replace with Amir Moradsaleh project details',
     shortDescription:
-      'A restrained editorial storefront concept translating physical object presence into an unhurried, grid-disciplined browsing architecture.',
-    heroImage: portfolioAssets.workDigitalCommerce,
+      'A minimalist editorial e-commerce website interface balancing tactile product presentation, crisp Swiss typography, and frictionless variant selection.',
+    heroImage: portfolioAssets.workDigitalCommerceUi,
     heroImageAlt:
-      'Minimalist ceramic and aluminum object resting on a warm travertine plinth with architectural window shadows',
+      'Minimalist editorial e-commerce website interface displaying product photography, Swiss typography, color swatches, and a vermilion Add to Bag button',
     aspectClass: 'aspect-[4/3]',
     gridSpanClass: 'lg:col-span-7',
-    coordinates: '40.01 · COMM-01',
+    coordinates: 'UI 01 · COMMERCE',
     overview:
-      '[Placeholder Overview — To be supplied by Amir] An exploration of digital commerce stripped of promotional clutter. Instead of dense retail carousels, products are presented with museum-grade whitespace, crisp architectural specifications, and fluid tactile state transitions.',
+      '[Placeholder Overview — To be supplied by Amir] An exploration of digital commerce stripped of promotional clutter. Instead of crowded retail templates, products are presented inside a calm editorial grid with instant variant feedback and streamlined purchase flows.',
     objectives: [
-      'Establish an unhurried editorial browsing rhythm that elevates physical craftsmanship.',
-      'Unify product specifications, imagery, and checkout flow inside a single coherent grid.',
-      'Maintain instantaneous visual responsiveness across desktop and mobile viewports.',
+      'Establish an unhurried editorial storefront rhythm that highlights product craft.',
+      'Unify imagery, specifications, variant swatches, and checkout inside one clean grid.',
+      'Deliver instant client-side transitions across desktop and mobile viewports.',
     ],
     creativeDirection:
-      'Rooted in Swiss catalog typography and warm architectural materials—travertine, warm ivory paper, and matte charcoal ink—using vermilion strictly to signify active selection and purchase intent.',
+      'Grounded in Swiss editorial web typography, warm ivory paper surfaces, fine hairline dividers, and a high-intent vermilion accent reserved strictly for primary purchase actions.',
     processSteps: [
       {
-        phase: '01 · Architecture',
-        title: 'Catalog Taxonomy & Grid Proportions',
+        phase: '01 · Structure',
+        title: 'Storefront Information Design',
         detail:
-          'Defined a 12-column asymmetric product sheet separating full-bleed photography from tabular technical specifications.',
+          'Mapped product discovery, collection filtering, and product detail screens into a clean 12-column responsive layout.',
       },
       {
         phase: '02 · Visual System',
-        title: 'Typographic Scale & Material Contrast',
+        title: 'Design Tokens & Editorial Type Scale',
         detail:
-          'Paired oversized grotesk object titles with monospaced dimensions and tactile hairline dividers.',
+          'Defined reusable pricing, variant swatch, and product card components with disciplined spacing and contrast.',
       },
       {
         phase: '03 · Interaction',
-        title: 'Seamless Variant & Cart Choreography',
+        title: 'Instant Variant & Bag Feedback',
         detail:
-          'Engineered zero-reload image crossfades and an inline architectural specification drawer.',
+          'Prototyped zero-reload media crossfades and an inline slide-over shopping bag interaction.',
       },
     ],
     interfacePreviewNotes: [
       {
-        label: 'View A — Object Monograph',
-        caption: 'Split viewport balancing macro material photography against tabular product geometry.',
-        layoutType: 'commerce-plinth',
+        label: 'View A — Product Detail Screen',
+        caption: 'Split-screen layout pairing studio product imagery against tabular specs and instant add-to-bag controls.',
+        layoutType: 'commerce-ui',
       },
       {
-        label: 'View B — Modular Index',
-        caption: 'Filterable catalog grid with restrained hairline framing and instant hover previews.',
+        label: 'View B — Collection Grid',
+        caption: 'Filterable editorial catalog with restrained hairline framing and crisp hover preview states.',
         layoutType: 'editorial-grid',
       },
     ],
     interactionDemo: {
-      title: 'Tactile Material & Configuration Preview',
+      title: 'Interactive Variant & Purchase State Preview',
       description:
-        'Demonstrates instant surface-state switching without jarring layout shifts or modal interruptions.',
-      states: ['Travertine Finish', 'Anodized Charcoal', 'Raw Alabaster'],
+        'Demonstrates immediate surface and state switching without jarring page reloads.',
+      states: ['Default View', 'Variant Selected', 'Added to Bag'],
     },
-    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'GSAP ScrollTrigger', 'Custom SVG'],
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'GSAP ScrollTrigger', 'Design Tokens'],
     outcome:
-      '[Placeholder Outcome — Supply real launch summary or reflections when ready] Demonstrates a complete template structure for documenting commerce design systems, visual direction, and interactive prototypes.',
+      '[Placeholder Outcome — Supply real project reflections when ready] Demonstrates a complete template structure for documenting e-commerce interface design, tokens, and interactive states.',
   },
   {
     slug: 'brand-experience',
     number: '02',
     title: 'BRAND EXPERIENCE',
-    category: 'Spatial Narrative & Web Identity',
+    category: 'Brand Flagship & Interactive Web',
     year: '2026 · Placeholder',
     statusNote: 'Editable Case Study Template — Replace with Amir Moradsaleh project details',
     shortDescription:
-      'An architectural brand flagship translating spatial geometry, light, and typographic pacing into a continuous scroll-driven narrative.',
-    heroImage: portfolioAssets.workBrandExperience,
+      'A high-impact digital brand website combining oversized display typography, layered browser storytelling, and smooth scroll-linked transitions.',
+    heroImage: portfolioAssets.workBrandExperienceUi,
     heroImageAlt:
-      'Contemporary architectural exhibition hall with monolithic concrete columns, curved alabaster wall, and morning light shafts',
+      'Overlapping minimalist browser windows presenting a contemporary digital brand website with bold Swiss typography, product showcase, and vermilion CTA',
     aspectClass: 'aspect-[4/3]',
     gridSpanClass: 'lg:col-span-5',
     offsetClass: 'lg:mt-24',
-    coordinates: '40.02 · BRND-02',
+    coordinates: 'UI 02 · BRAND WEB',
     overview:
-      '[Placeholder Overview — To be supplied by Amir] Designed as an architectural promenade on the web. Rather than stacking isolated marketing banners, the site guides visitors through carefully paced chapters of space, typography, and progressive visual revelation.',
+      '[Placeholder Overview — To be supplied by Amir] Designed as a cohesive digital flagship rather than a stack of generic landing page blocks. Expressive display typography, crisp art direction, and intentional pacing turn brand storytelling into an interactive journey.',
     objectives: [
-      'Translate physical architectural identity into an unmistakable digital visual language.',
-      'Choreograph scroll-linked transitions that reward curiosity without delaying content access.',
-      'Create a scalable editorial system for future exhibitions, stories, and announcements.',
+      'Translate visual brand identity into an unmistakable, expressive web experience.',
+      'Choreograph scroll-linked transitions that reward exploration without delaying legibility.',
+      'Build a scalable page-section system for product launches, stories, and editorial features.',
     ],
     creativeDirection:
-      'Inspired by daylight moving across travertine and concrete planes. Strong vertical structural lines anchor oversized editorial statements while generous negative space creates calm authority.',
+      'Anchored by oversized grotesk display type, clean multi-window editorial framing, generous negative space, and surgical vermilion call-to-action highlights.',
     processSteps: [
       {
         phase: '01 · Concept',
-        title: 'Narrative Storyboarding',
+        title: 'Digital Storyboarding',
         detail:
-          'Mapped the brand story into sequential spatial frames with deliberate rests between dense editorial sections.',
+          'Mapped the narrative arc into rhythmic viewport chapters balancing bold statements with calm visual rests.',
       },
       {
         phase: '02 · Motion System',
-        title: 'Scroll-Scrubbed Elevation Shifts',
+        title: 'Scroll-Scrubbed Visual Transitions',
         detail:
-          'Built synchronized SVG drafting overlays that dissolve smoothly into photographic architecture.',
+          'Built synchronized SVG wireframe reveals that dissolve smoothly into finished brand screens.',
       },
       {
         phase: '03 · Engineering',
-        title: 'Responsive Grid Adaptation',
+        title: 'Responsive Breakpoint Tuning',
         detail:
-          'Tailored column proportions and motion durations individually for desktop, tablet, and touch devices.',
+          'Calibrated type scale, image framing, and motion intensity independently across desktop, tablet, and touch devices.',
       },
     ],
     interfacePreviewNotes: [
       {
-        label: 'View A — Narrative Opener',
-        caption: 'Full-viewport editorial chapter introduction with synchronized hairline grid lines.',
+        label: 'View A — Editorial Hero Frame',
+        caption: 'Full-viewport brand opener pairing oversized display headlines with curated media composition.',
         layoutType: 'editorial-grid',
       },
       {
-        label: 'View B — Exhibition Index',
-        caption: 'Asymmetric archive directory pairing structured metadata with organic image masks.',
-        layoutType: 'type-index',
+        label: 'View B — Layered Story Index',
+        caption: 'Interactive project and story index with organic ink-masked visual reveals.',
+        layoutType: 'spatial-browser',
       },
     ],
     interactionDemo: {
-      title: 'Architectural Light & Elevation Scrubber',
+      title: 'Brand Interface Mode & Contrast Study',
       description:
-        'Interactive demonstration of how architectural lighting cues and tonal planes adapt to user exploration.',
-      states: ['Drafting Blueprint', 'Ambient Daylight', 'High-Contrast Gallery'],
+        'Explore how tonal surfaces and interactive states maintain legibility across campaign chapters.',
+      states: ['Wireframe Grid', 'Editorial Ivory', 'High-Contrast Mode'],
     },
     techStack: ['React', 'TypeScript', 'GSAP', 'Lenis', 'SVG Masks'],
     outcome:
-      '[Placeholder Outcome — Supply real project reflection when ready] Provides a modular narrative framework for presenting identity systems and flagship digital experiences.',
+      '[Placeholder Outcome — Supply real project reflection when ready] Provides a modular template for showcasing brand flagship websites and digital art direction.',
   },
   {
     slug: 'creative-platform',
     number: '03',
     title: 'CREATIVE PLATFORM',
-    category: 'Editorial Archive & Publishing System',
+    category: 'Product Dashboard & Design System',
     year: '2025 · Placeholder',
     statusNote: 'Editable Case Study Template — Replace with Amir Moradsaleh project details',
     shortDescription:
-      'A living digital monograph and publishing interface organized around Swiss grid rigor, drafting overlays, and calm typographic legibility.',
-    heroImage: portfolioAssets.workCreativePlatform,
+      'A modular digital workspace and publishing platform uniting clean sidebar navigation, reusable UI cards, and live design system tokens.',
+    heroImage: portfolioAssets.workCreativePlatformUi,
     heroImageAlt:
-      'Open architectural design monograph resting on ivory linen beside a black drafting ruler and translucent vellum grid',
+      'Vertical UI presentation of a creative platform dashboard with left navigation sidebar, modular publishing cards, and charcoal and vermilion design tokens',
     aspectClass: 'aspect-[3/4]',
     gridSpanClass: 'lg:col-span-5',
-    coordinates: '40.03 · PLAT-03',
+    coordinates: 'UI 03 · PLATFORM',
     overview:
-      '[Placeholder Overview — To be supplied by Amir] A digital publishing environment crafted for long-form visual essays, design archives, and studio documentation. Balances the tactile calm of printed monographs with fluid hyperlinked indexing.',
+      '[Placeholder Overview — To be supplied by Amir] A calm, structured web application crafted for creative teams to organize projects, publish visual work, and maintain shared design tokens without interface bloat.',
     objectives: [
-      'Design a reading and browsing experience that honors both photography and long-form prose.',
-      'Build intuitive cross-referencing and instant filtering without cluttered toolbars.',
-      'Establish a strict typographic scale that remains effortless to read at any viewport width.',
+      'Organize complex workspace workflows inside a clear, scannable modular grid.',
+      'Create a unified component library and live token documentation directly within the product.',
+      'Ensure effortless keyboard navigation and responsive behavior across screen sizes.',
     ],
     creativeDirection:
-      'Modeled directly after architectural monographs and drafting tables: warm uncoated paper tones, hairlines measured to the pixel, tabular index columns, and clean vellum-like overlay layers.',
+      'Warm uncoated-paper neutral surfaces paired with crisp 1px hairline borders, clear typographic hierarchy, and purposeful vermilion indicators for primary actions and active tokens.',
     processSteps: [
       {
         phase: '01 · Information Design',
-        title: 'Index & Monograph Taxonomy',
+        title: 'Workspace Navigation & Card Taxonomy',
         detail:
-          'Structured entries with unboxed tabular metadata so readers can scan years, disciplines, and formats immediately.',
+          'Consolidated sidebar navigation, project feeds, and token libraries into a predictable modular system.',
       },
       {
-        phase: '02 · Reading Rhythm',
-        title: 'Multi-Column Editorial Composition',
+        phase: '02 · Component System',
+        title: 'Reusable Cards, Notes & Token Swatches',
         detail:
-          'Balanced 65–72 character reading measures beside spacious margin annotations and full-bleed plates.',
+          'Standardized spacing scale, typography pairs, and state tokens for rapid frontend implementation.',
       },
       {
         phase: '03 · Prototyping',
-        title: 'Instant Plate Inspection',
+        title: 'Interactive Filtering & Publishing States',
         detail:
-          'Crafted smooth in-context image transitions and keyboard-accessible navigation across archive entries.',
+          'Validated layout density and micro-interactions in working React prototypes.',
       },
     ],
     interfacePreviewNotes: [
       {
-        label: 'View A — Monograph Spread',
-        caption: 'Two-column asymmetric spread pairing essay prose with technical figure callouts.',
-        layoutType: 'type-index',
+        label: 'View A — Modular Workspace',
+        caption: 'Balanced multi-column dashboard separating navigation, active drafts, and collaborator notes.',
+        layoutType: 'dashboard-ui',
       },
       {
-        label: 'View B — Archive Matrix',
-        caption: 'Precision index rows separated by 1px rules with live hover thumbnail reveal.',
+        label: 'View B — Design Token Inspector',
+        caption: 'Live swatch, typography, and spacing token panels integrated into the platform UI.',
         layoutType: 'editorial-grid',
       },
     ],
     interactionDemo: {
-      title: 'Vellum Grid & Margin Annotation Toggle',
+      title: 'Workspace Density & Token Layer Switcher',
       description:
-        'Explore how readers can toggle structural drafting guides and editorial margin notes seamlessly.',
-      states: ['Reading Mode', 'Grid Overlay', 'Annotated Index'],
+        'Test how the platform adapts cleanly between editorial focus, structured grid inspection, and dark review mode.',
+      states: ['Workspace View', 'Token Specs', 'Review Contrast'],
     },
-    techStack: ['React', 'TypeScript', 'CSS Grid', 'GSAP', 'Structured JSON'],
+    techStack: ['React', 'TypeScript', 'CSS Grid', 'Design Tokens', 'GSAP'],
     outcome:
-      '[Placeholder Outcome — Supply real project reflection when ready] Illustrates how editorial discipline and interactive clarity combine in content-rich creative platforms.',
+      '[Placeholder Outcome — Supply real project reflection when ready] Illustrates how editorial taste and product usability reinforce each other in web applications.',
   },
   {
     slug: 'experimental-interface',
     number: '04',
     title: 'EXPERIMENTAL INTERFACE',
-    category: 'Interactive System & Creative Development',
+    category: 'Creative Coding & Motion System',
     year: '2025 · Placeholder',
     statusNote: 'Editable Case Study Template — Replace with Amir Moradsaleh project details',
     shortDescription:
-      'An interactive spatial web experiment exploring responsive depth planes, optical SVG filters, and scroll-synchronized architectural diagrams.',
-    heroImage: portfolioAssets.workExperimentalInterface,
+      'An unconventional interactive web experience combining layered floating browser frames, kinetic typography, bezier motion paths, and responsive choreography.',
+    heroImage: portfolioAssets.workExperimentalInterfaceUi,
     heroImageAlt:
-      'Minimalist spatial installation with frosted glass planes, matte black structural frame, geometric light beam, and vermilion focal element',
+      'Experimental interactive website presentation featuring layered floating browser windows, bold Swiss typography, bezier motion paths, and mobile preview',
     aspectClass: 'aspect-[16/10]',
     gridSpanClass: 'lg:col-span-7',
     offsetClass: 'lg:mt-20',
-    coordinates: '40.04 · EXPR-04',
+    coordinates: 'UI 04 · EXPERIMENTAL',
     overview:
-      '[Placeholder Overview — To be supplied by Amir] An investigation into non-standard browser interaction: combining vector geometry, optical SVG displacement filters, and hardware-accelerated spatial layering into an intuitive, lightweight web instrument.',
+      '[Placeholder Overview — To be supplied by Amir] An interactive web experiment exploring multi-window editorial layouts, vector motion paths, optical SVG masks, and responsive pointer choreography built directly with native web technologies.',
     objectives: [
-      'Push expressive visual interaction using native web technologies and compositor-friendly animation.',
-      'Ensure experimental visuals remain immediately navigable and respectful of reduced-motion preferences.',
-      'Demonstrate tight collaboration between creative art direction and frontend engineering.',
+      'Push expressive web interaction using GPU-composited transforms and SVG filters.',
+      'Keep experimental interfaces intuitive, fast, and accessible with reduced-motion support.',
+      'Demonstrate tight integration between creative direction and frontend code.',
     ],
     creativeDirection:
-      'Translucent architectural planes, sharp light geometry, precision matte-black framing, and a solitary vermilion focal marker guiding cursor exploration across depth layers.',
+      'Overlapping browser windows, expressive display typography, clean vector bezier guides, and a signature vermilion cursor accent linking desktop and mobile interactive canvases.',
     processSteps: [
       {
         phase: '01 · Experimentation',
-        title: 'Motion & Optical Filter Studies',
+        title: 'Motion Curves & Optical Mask Prototypes',
         detail:
-          'Prototyped SVG turbulence masks, path-drawing synchronization, and responsive pointer interpolation.',
+          'Tested SVG displacement ink filters, path-drawing synchronization, and responsive pointer tracking.',
       },
       {
         phase: '02 · Choreography',
-        title: 'Scroll-Pinned State Machine',
+        title: 'Scroll-Scrubbed Multi-Window Timeline',
         detail:
-          'Tied multi-layer geometry directly to scroll progress so forward and reverse scrubbing feel physical.',
+          'Synchronized layered interface transitions directly to scroll progress with smooth reverse playback.',
       },
       {
         phase: '03 · Optimization',
-        title: 'Frame-Budget Discipline',
+        title: '60fps Compositor Discipline',
         detail:
-          'Restricted continuous transforms to GPU-composited properties and bypassed React state inside animation loops.',
+          'Restricted continuous updates to transforms and refs, eliminating layout thrash and per-frame React re-renders.',
       },
     ],
     interfacePreviewNotes: [
       {
-        label: 'View A — Layered Spatial Canvas',
-        caption: 'Independent depth planes responding smoothly to pointer coordinates and scroll progress.',
-        layoutType: 'spatial-canvas',
+        label: 'View A — Multi-Window Canvas',
+        caption: 'Layered floating browser frames connected by interactive bezier motion vectors.',
+        layoutType: 'spatial-browser',
       },
       {
-        label: 'View B — Vector Telemetry Spec',
-        caption: 'Precision architectural wireframe blueprint exposing component hierarchy and motion curves.',
-        layoutType: 'commerce-plinth',
+        label: 'View B — Responsive Mobile Pairing',
+        caption: 'Synchronized mobile viewport translating experimental desktop motion into crisp touch interactions.',
+        layoutType: 'commerce-ui',
       },
     ],
     interactionDemo: {
-      title: 'Optical Plane & Vector Alignment Study',
+      title: 'Layered Window & Motion Curve Sandbox',
       description:
-        'Test how depth separation and focal emphasis transform an abstract geometric layout into an interactive interface.',
-      states: ['Wireframe Axis', 'Frosted Depth', 'Focal Resonance'],
+        'Switch interface states to inspect how typography, vector guides, and contrast layers interact.',
+      states: ['Wireframe Axis', 'Layered Windows', 'Kinetic Focus'],
     },
     techStack: ['TypeScript', 'GSAP ScrollTrigger', 'SVG Filters', 'CSS Masks', 'Lenis'],
     outcome:
-      '[Placeholder Outcome — Supply real project reflection when ready] Serves as a live showcase structure for experimental frontend studies and interactive prototypes.',
+      '[Placeholder Outcome — Supply real project reflection when ready] Serves as a live showcase structure for creative coding experiments and motion-driven web prototypes.',
   },
 ];
 

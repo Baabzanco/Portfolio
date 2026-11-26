@@ -90,27 +90,27 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="relative z-10 bg-[#F2F1E9] text-[#252522]">
-      {/* Upper Publication Index Grid */}
+      {/* Upper Digital Editorial Index Grid */}
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 py-14 lg:py-16 border-b border-[#C9C8BE]">
         <div className="grid grid-cols-12 gap-8 lg:gap-10">
           {/* Col 1: Identity & Statement */}
           <div className="col-span-12 lg:col-span-4">
             <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.12em] text-[#77776F]">
               <RegistrationMark accent />
-              <span>10 · Colophon</span>
+              <span>10 · Digital Index</span>
             </div>
             <p className="mt-4 font-display text-lg font-semibold tracking-[0.04em] text-[#252522]">
               {siteConfig.brand.name}
             </p>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-[#77776F]">
-              {siteConfig.brand.role}. Built as an architectural monograph of visual systems, motion, and digital craft.
+              {siteConfig.brand.role}. Crafting expressive visual systems, motion choreography, and interactive websites.
             </p>
           </div>
 
           {/* Col 2: Navigation */}
           <div className="col-span-6 sm:col-span-4 lg:col-span-3">
             <h3 className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#77776F]">
-              Index
+              Navigation
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               {siteConfig.navigation.map((item) => (
@@ -180,11 +180,11 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Signature Oversized Outlined Architectural Wordmark with Organic Ink Reveal */}
+      {/* Signature Oversized Outlined Editorial Wordmark with Organic Ink Reveal */}
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 pt-8 pb-6">
         <div className="mb-3 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] text-[#77776F]">
-          <span>SIGNATURE PLATE · MOVE CURSOR OVER LETTERFORMS FOR INK FILL</span>
-          <span className="hidden sm:inline">SVG TURBULENCE MASK</span>
+          <span>INTERACTIVE TYPE SPECIMEN · MOVE CURSOR OVER LETTERFORMS FOR INK FILL</span>
+          <span className="hidden sm:inline">SVG INK MASK</span>
         </div>
 
         <div className="border border-[#C9C8BE] bg-[#E8E7DE]/35 px-2 sm:px-4 py-4 sm:py-6 overflow-hidden">
@@ -196,10 +196,9 @@ export const Footer: React.FC = () => {
             data-cursor="ink"
             className="w-full h-auto select-none cursor-crosshair"
             role="img"
-            aria-label="AMIR MORADSALEH oversized architectural wordmark with interactive ink reveal"
+            aria-label="AMIR MORADSALEH oversized outlined typography wordmark with interactive cursor ink reveal"
           >
             <defs>
-              {/* Organic turbulent ink-edge displacement + gentle blur */}
               <filter id={inkFilterId} x="-30%" y="-30%" width="160%" height="160%">
                 <feTurbulence
                   type="fractalNoise"
@@ -228,14 +227,14 @@ export const Footer: React.FC = () => {
               </mask>
             </defs>
 
-            {/* Fine architectural typography baseline guides */}
+            {/* Fine editorial typography cap-height and baseline grid lines */}
             <g stroke="#C9C8BE" strokeWidth="0.8">
               <line x1="16" y1="36" x2="1184" y2="36" strokeDasharray="3 4" />
               <line x1="16" y1="184" x2="1184" y2="184" />
               <line x1="16" y1="110" x2="1184" y2="110" strokeDasharray="2 6" />
             </g>
 
-            {/* Layer 1: Outlined Technical Architectural Drawing Wordmark */}
+            {/* Layer 1: Outlined Editorial Wordmark */}
             <text
               x="600"
               y="162"
@@ -265,7 +264,6 @@ export const Footer: React.FC = () => {
               >
                 AMIR MORADSALEH
               </text>
-              {/* Crisp vermilion baseline accent revealed inside the ink pool */}
               <line x1="36" y1="184" x2="1164" y2="184" stroke="#F04427" strokeWidth="3" />
             </g>
           </svg>
@@ -277,7 +275,7 @@ export const Footer: React.FC = () => {
             © {siteConfig.brand.year} {siteConfig.brand.name}. All rights reserved.
           </span>
           <span>
-            FROM STRUCTURE TO EXPERIENCE · ARCHITECTURAL EDITION
+            FROM WIREFRAME TO EXPERIENCE · DIGITAL PORTFOLIO
           </span>
         </div>
       </div>

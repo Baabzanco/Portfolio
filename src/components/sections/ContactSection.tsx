@@ -8,11 +8,12 @@ import { useSmoothScroll } from '../animations/SmoothScroll';
 
 export const ContactSection: React.FC = () => {
   const markerStageRef = useRef<HTMLDivElement | null>(null);
-  const markerCircleRef = useRef<HTMLDivElement | null>(null);
+  const cursorBeaconRef = useRef<HTMLDivElement | null>(null);
 
   const [briefOpen, setBriefOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [pointerActive, setPointerActive] = useState(false);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,22 +23,24 @@ export const ContactSection: React.FC = () => {
   const { reducedMotion } = useSmoothScroll();
 
   const handleStageMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (reducedMotion || !markerStageRef.current || !markerCircleRef.current) return;
+    setPointerActive(true);
+    if (reducedMotion || !markerStageRef.current || !cursorBeaconRef.current) return;
     const rect = markerStageRef.current.getBoundingClientRect();
     const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.14;
     const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.14;
 
-    gsap.to(markerCircleRef.current, {
+    gsap.to(cursorBeaconRef.current, {
       x: dx,
       y: dy,
-      duration: 0.45,
+      duration: 0.42,
       ease: 'power2.out',
     });
   };
 
   const handleStageLeave = () => {
-    if (!markerCircleRef.current) return;
-    gsap.to(markerCircleRef.current, {
+    setPointerActive(false);
+    if (!cursorBeaconRef.current) return;
+    gsap.to(cursorBeaconRef.current, {
       x: 0,
       y: 0,
       duration: 0.65,
@@ -144,58 +147,86 @@ export const ContactSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Right Striking Architectural Geometric Visual with Interactive Vermilion Marker */}
+          {/* Right Interactive Digital Cursor & UI Response Card */}
           <div className="col-span-12 lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[360px] aspect-square border border-[#C9C8BE] bg-[#F2F1E9] flex items-center justify-center overflow-hidden p-6">
-              {/* Architectural coordinate lines */}
-              <svg
-                viewBox="0 0 320 320"
-                fill="none"
-                aria-hidden="true"
-                className="absolute inset-0 h-full w-full"
-              >
-                <line x1="160" y1="0" x2="160" y2="320" stroke="#C9C8BE" strokeWidth="1" />
-                <line x1="0" y1="160" x2="320" y2="160" stroke="#C9C8BE" strokeWidth="1" />
-                <circle cx="160" cy="160" r="118" stroke="#252522" strokeWidth="1" strokeDasharray="4 4" />
-                <rect x="42" y="42" width="236" height="236" stroke="#C9C8BE" strokeWidth="0.9" />
-              </svg>
-
-              {/* Interactive pointer-reactive vermilion architectural focal circle */}
-              <div
-                ref={markerCircleRef}
-                data-cursor="interactive"
-                onClick={() => {
-                  setBriefOpen(true);
-                  setSubmitted(false);
-                }}
-                className="relative z-10 h-36 w-36 rounded-full bg-[#F04427] flex flex-col items-center justify-center text-white cursor-pointer transition-transform duration-300 hover:scale-105 will-change-transform"
-              >
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em]">
-                  INQUIRE
-                </span>
-                <span className="mt-1 font-display text-2xl font-semibold tracking-tight">
-                  2026
+            <div className="relative w-full max-w-[360px] aspect-square border border-[#252522] bg-[#F2F1E9] flex flex-col justify-between overflow-hidden">
+              {/* Mini browser top chrome */}
+              <div className="flex items-center justify-between border-b border-[#C9C8BE] bg-[#E8E7DE] px-3.5 py-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-2 w-2 rounded-full border border-[#252522]" />
+                  <span className="h-2 w-2 rounded-full border border-[#252522]" />
+                  <span className="h-2 w-2 rounded-full bg-[#F04427]" />
+                </div>
+                <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-[#77776F]">
+                  new-project.ui
                 </span>
               </div>
 
-              <div className="pointer-events-none absolute top-3 left-3 font-mono text-[10px] text-[#77776F]">
-                FIG 09 · ORIGIN
+              {/* Interactive digital canvas with reactive vermilion cursor point */}
+              <div className="relative flex-1 ui-canvas-grid flex items-center justify-center p-6">
+                <div className="w-full space-y-2.5 opacity-80">
+                  <div
+                    className={`border px-3 py-2 font-mono text-[10px] flex items-center justify-between transition-colors duration-200 ${
+                      pointerActive
+                        ? 'border-[#F04427] bg-[#F2F1E9] text-[#252522]'
+                        : 'border-[#C9C8BE] bg-[#F2F1E9]/80 text-[#77776F]'
+                    }`}
+                  >
+                    <span>01 · WEB DESIGN</span>
+                    <span>{pointerActive ? 'READY' : 'IDLE'}</span>
+                  </div>
+                  <div
+                    className={`border px-3 py-2 font-mono text-[10px] flex items-center justify-between transition-colors duration-200 ${
+                      pointerActive
+                        ? 'border-[#252522] bg-[#252522] text-[#F2F1E9]'
+                        : 'border-[#C9C8BE] bg-[#F2F1E9]/80 text-[#77776F]'
+                    }`}
+                  >
+                    <span>02 · INTERACTION</span>
+                    <span>{pointerActive ? 'ACTIVE' : 'IDLE'}</span>
+                  </div>
+                  <div className="border border-[#C9C8BE] bg-[#F2F1E9]/80 px-3 py-2 font-mono text-[10px] flex items-center justify-between text-[#77776F]">
+                    <span>03 · DEVELOPMENT</span>
+                    <span>2026</span>
+                  </div>
+                </div>
+
+                {/* Pointer-reactive vermilion digital cursor marker */}
+                <div
+                  ref={cursorBeaconRef}
+                  data-cursor="interactive"
+                  onClick={() => {
+                    setBriefOpen(true);
+                    setSubmitted(false);
+                  }}
+                  className="absolute z-10 flex items-center gap-2.5 bg-[#F04427] px-4 py-3 text-white shadow-[6px_6px_0_rgba(37,37,34,0.16)] cursor-pointer transition-transform duration-200 hover:scale-105 will-change-transform"
+                >
+                  <svg width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true">
+                    <polygon points="1,1 1,14 5,10 8,15 10,14 7,9 12,9" fill="#FFFFFF" />
+                  </svg>
+                  <span className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] whitespace-nowrap">
+                    OPEN BRIEF
+                  </span>
+                </div>
               </div>
-              <div className="pointer-events-none absolute bottom-3 right-3 font-mono text-[10px] text-[#252522]">
-                OPEN BRIEF
+
+              {/* Mini footer status bar */}
+              <div className="border-t border-[#C9C8BE] px-3.5 py-2 flex items-center justify-between font-mono text-[9.5px] text-[#77776F]">
+                <span>INTERACTIVE MARKER</span>
+                <span className="text-[#252522]">CLICK TO START</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Inline Architectural Project Brief Composer */}
+        {/* Inline Digital Project Brief Composer */}
         {briefOpen && (
           <div className="mt-12 border border-[#252522] bg-[#F2F1E9] p-6 sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#C9C8BE]">
               <div className="flex items-center gap-3">
                 <RegistrationMark accent />
                 <h3 className="font-display text-xl sm:text-2xl font-semibold text-[#252522]">
-                  Project Brief Specification
+                  Project Brief
                 </h3>
               </div>
               <span className="font-mono text-[11px] text-[#77776F]">
@@ -285,7 +316,7 @@ export const ContactSection: React.FC = () => {
                     <option>Web Design &amp; Creative Development</option>
                     <option>Brand Digital Flagship</option>
                     <option>Interaction Design &amp; Motion Choreography</option>
-                    <option>Experimental Web Narrative</option>
+                    <option>Experimental Web Experience</option>
                   </select>
                 </div>
 

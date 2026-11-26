@@ -22,12 +22,12 @@ export const AboutSection: React.FC = () => {
 
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24">
         <div className="grid grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* Left Portrait Plate (Asymmetric 5 cols) */}
-          <div className="col-span-12 lg:col-span-5">
+          {/* Left Contemporary Studio Portrait + Digital Note Fragment */}
+          <div className="col-span-12 lg:col-span-5 space-y-5">
             <div className="border border-[#C9C8BE] bg-[#E8E7DE]/60 p-3 sm:p-4">
               <div className="mb-3 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] text-[#77776F]">
-                <span>PLATE 08 · STUDIO PORTRAIT</span>
-                <span>PLACEHOLDER</span>
+                <span>PORTRAIT 08 · STUDIO</span>
+                <span>EDITABLE PLACEHOLDER</span>
               </div>
 
               <InkReveal
@@ -41,9 +41,24 @@ export const AboutSection: React.FC = () => {
                 {siteConfig.about.portraitCaption}
               </p>
             </div>
+
+            {/* Subtle Digital Process Annotation Fragment */}
+            <div className="border border-[#C9C8BE] bg-[#F2F1E9] p-4 flex items-center justify-between gap-4">
+              <div>
+                <span className="block font-mono text-[10px] uppercase tracking-[0.12em] text-[#F04427]">
+                  Working Method
+                </span>
+                <p className="mt-1 text-xs text-[#252522]">
+                  Concept → Grid → Type → Motion → Production Code
+                </p>
+              </div>
+              <span className="font-mono text-[10px] text-[#77776F] tabular-nums shrink-0">
+                01—06
+              </span>
+            </div>
           </div>
 
-          {/* Right Editorial Profile (7 cols) */}
+          {/* Right Editorial Profile */}
           <div className="col-span-12 lg:col-span-7 flex flex-col justify-between">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#F04427] mb-4">
@@ -63,7 +78,7 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Design & Technical Interests Two-Column Ledger */}
+            {/* Design & Technical Interests */}
             <div className="mt-10 pt-8 border-t border-[#C9C8BE] grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#252522] flex items-center gap-2">
@@ -82,7 +97,7 @@ export const AboutSection: React.FC = () => {
               <div>
                 <h3 className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#252522] flex items-center gap-2">
                   <RegistrationMark />
-                  <span>Technical Craft</span>
+                  <span>Frontend &amp; Interaction Craft</span>
                 </h3>
                 <ul className="mt-4 space-y-2.5 text-sm text-[#77776F]">
                   {siteConfig.about.technicalInterests.map((item) => (
@@ -94,7 +109,7 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Editable Metadata Strip (Location + Direct Contact Link) */}
+            {/* Editable Metadata Strip */}
             <div className="mt-10 pt-6 border-t border-[#C9C8BE] grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
               <div>
                 <span className="block font-mono text-[10px] uppercase tracking-[0.12em] text-[#77776F]">

@@ -12,8 +12,8 @@ const STAGES = siteConfig.process.stages;
 
 export const ProcessSection: React.FC = () => {
   const uid = useId().replace(/:/g, '');
-  const maskId = `process-exp-mask-${uid}`;
-  const filterId = `process-exp-filter-${uid}`;
+  const maskId = `process-ui-mask-${uid}`;
+  const filterId = `process-ui-filter-${uid}`;
 
   const pinContainerRef = useRef<HTMLDivElement | null>(null);
   const progressBarRef = useRef<HTMLDivElement | null>(null);
@@ -25,7 +25,15 @@ export const ProcessSection: React.FC = () => {
 
   const { scrollTo, reducedMotion } = useSmoothScroll();
 
-  // Build master timeline for the 6 stages (reused both for desktop scroll-scrub & mobile interactive stepping)
+  /**
+   * 6-Stage Scroll-Scrubbed Website Creation Timeline:
+   * 01 CONCEPT     -> Blank digital canvas, browser chrome, URL bar & direction focus
+   * 02 STRUCTURE   -> 12-col website grid, navigation bar, content regions & layout frames
+   * 03 DESIGN      -> Typography hierarchy, color tokens, surface fills & UI components
+   * 04 INTERACTION -> Active nav states, button hover fill, cursor path & micro-motion
+   * 05 DEVELOPMENT -> Responsive mobile breakpoint preview slides in alongside live DOM tokens
+   * 06 EXPERIENCE  -> Organic ink-mask blooms the finished website visual into the browser canvas
+   */
   const buildStageTimeline = (svg: SVGSVGElement) => {
     const prepareStroke = (selector: string) => {
       const els = svg.querySelectorAll<SVGGeometryElement>(selector);
@@ -38,7 +46,6 @@ export const ProcessSection: React.FC = () => {
 
     const s1Lines = prepareStroke('.p-stage-1-line');
     const s2Lines = prepareStroke('.p-stage-2-line');
-    const s3Lines = prepareStroke('.p-stage-3-line');
     const s4Lines = prepareStroke('.p-stage-4-line');
 
     const s1Group = svg.querySelector('.p-stage-1');
@@ -49,64 +56,73 @@ export const ProcessSection: React.FC = () => {
     const s6Group = svg.querySelector('.p-stage-6');
     const expBlot = svg.querySelector('.p-exp-blot');
     const cursorNode = svg.querySelector('.p-cursor-node');
+    const mobileDevice = svg.querySelector('.p-mobile-preview');
 
     gsap.set([s2Group, s3Group, s4Group, s5Group, s6Group], { opacity: 0 });
     gsap.set(s1Group, { opacity: 1 });
     if (expBlot) gsap.set(expBlot, { attr: { r: 0 } });
+    if (mobileDevice) gsap.set(mobileDevice, { x: 64, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'none' } });
 
-    // STAGE 01 — STRUCTURE (0.0 -> 1.0)
-    tl.to(s1Lines, { strokeDashoffset: 0, stagger: 0.025, duration: 0.9 }, 0);
-
-    // STAGE 02 — FOUNDATION (1.0 -> 2.0)
-    tl.to(s2Group, { opacity: 1, duration: 0.15 }, 1.0);
-    tl.to(s2Lines, { strokeDashoffset: 0, stagger: 0.04, duration: 0.85 }, 1.05);
-
-    // STAGE 03 — COMPOSITION (2.0 -> 3.0)
-    tl.to(s3Group, { opacity: 1, duration: 0.18 }, 2.0);
-    tl.to(s3Lines, { strokeDashoffset: 0, stagger: 0.035, duration: 0.78 }, 2.06);
+    // STAGE 01 — CONCEPT (0.0 -> 1.0)
+    tl.to(s1Lines, { strokeDashoffset: 0, stagger: 0.04, duration: 0.85 }, 0);
     tl.fromTo(
-      svg.querySelectorAll('.p-stage-3-block'),
-      { scaleX: 0, transformOrigin: 'left center' },
-      { scaleX: 1, stagger: 0.05, duration: 0.65 },
-      2.18
+      svg.querySelectorAll('.p-stage-1-fade'),
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, stagger: 0.06, duration: 0.55 },
+      0.25
+    );
+
+    // STAGE 02 — STRUCTURE (1.0 -> 2.0)
+    tl.to(s2Group, { opacity: 1, duration: 0.14 }, 1.0);
+    tl.to(s2Lines, { strokeDashoffset: 0, stagger: 0.032, duration: 0.84 }, 1.04);
+    tl.to(svg.querySelectorAll('.p-stage-1-fade'), { opacity: 0.12, duration: 0.45 }, 1.1);
+
+    // STAGE 03 — DESIGN (2.0 -> 3.0)
+    tl.to(s3Group, { opacity: 1, duration: 0.18 }, 2.0);
+    tl.fromTo(
+      svg.querySelectorAll('.p-stage-3-item'),
+      { y: 12, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.055, duration: 0.78 },
+      2.08
     );
 
     // STAGE 04 — INTERACTION (3.0 -> 4.0)
-    tl.to(s4Group, { opacity: 1, duration: 0.15 }, 3.0);
-    tl.to(s4Lines, { strokeDashoffset: 0, stagger: 0.05, duration: 0.75 }, 3.06);
+    tl.to(s4Group, { opacity: 1, duration: 0.14 }, 3.0);
+    tl.to(s4Lines, { strokeDashoffset: 0, stagger: 0.05, duration: 0.72 }, 3.06);
     if (cursorNode) {
       tl.fromTo(
         cursorNode,
-        { x: -160, y: 70, opacity: 0 },
-        { x: 0, y: 0, opacity: 1, duration: 0.78, ease: 'power1.inOut' },
-        3.15
+        { x: -170, y: 74, opacity: 0 },
+        { x: 0, y: 0, opacity: 1, duration: 0.8, ease: 'power1.inOut' },
+        3.14
       );
     }
 
-    // STAGE 05 — REFINEMENT (4.0 -> 5.0)
-    tl.to(s5Group, { opacity: 1, duration: 0.75 }, 4.05);
+    // STAGE 05 — DEVELOPMENT (4.0 -> 5.0)
+    tl.to(s5Group, { opacity: 1, duration: 0.18 }, 4.0);
+    if (mobileDevice) {
+      tl.to(mobileDevice, { x: 0, opacity: 1, duration: 0.75, ease: 'power2.out' }, 4.08);
+    }
     tl.fromTo(
       svg.querySelectorAll('.p-stage-5-item'),
-      { y: 12, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.06, duration: 0.75 },
-      4.12
+      { y: 10, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.07, duration: 0.65 },
+      4.2
     );
 
     // STAGE 06 — EXPERIENCE (5.0 -> 6.0)
-    tl.to(s6Group, { opacity: 1, duration: 0.2 }, 5.0);
+    tl.to(s6Group, { opacity: 1, duration: 0.16 }, 5.0);
     if (expBlot) {
-      tl.to(expBlot, { attr: { r: 340 }, duration: 0.9, ease: 'power2.out' }, 5.05);
+      tl.to(expBlot, { attr: { r: 360 }, duration: 0.9, ease: 'power2.out' }, 5.06);
     }
-    // Blueprint guides gently recede into finished architectural precision
-    tl.to(s1Group, { opacity: 0.24, duration: 0.75 }, 5.15);
-    tl.to(s4Group, { opacity: 0.42, duration: 0.75 }, 5.2);
+    tl.to(s2Group, { opacity: 0.25, duration: 0.7 }, 5.18);
+    tl.to(s4Group, { opacity: 0.55, duration: 0.7 }, 5.22);
 
     return tl;
   };
 
-  // Desktop scroll-pinned scrubbed choreography vs Mobile/Reduced-Motion interactive stepper
   const mobileTimelineRef = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
@@ -164,7 +180,6 @@ export const ProcessSection: React.FC = () => {
             scrollTriggerRef.current = null;
           };
         } else {
-          // Mobile / Reduced-Motion: clean interactive stage progression without locking touch scroll
           mobileTimelineRef.current = tl;
           tl.progress((activeStage + 1) / STAGES.length);
           if (progressBarRef.current) {
@@ -182,7 +197,6 @@ export const ProcessSection: React.FC = () => {
     return () => mm.revert();
   }, [reducedMotion]);
 
-  // Animate mobile / reduced-motion stage transitions cleanly when user taps a stage
   useEffect(() => {
     if (isDesktopPinned || !mobileTimelineRef.current) return;
     const targetProgress = (activeStage + 1) / STAGES.length;
@@ -229,7 +243,7 @@ export const ProcessSection: React.FC = () => {
         ref={pinContainerRef}
         className="relative min-h-[auto] lg:min-h-screen flex flex-col justify-between bg-[#F2F1E9] pt-14 lg:pt-16"
       >
-        {/* Continuous top architectural progress ruler */}
+        {/* Continuous top scroll progress bar */}
         <div className="h-[2px] w-full bg-[#C9C8BE]/60 overflow-hidden">
           <div
             ref={progressBarRef}
@@ -240,7 +254,7 @@ export const ProcessSection: React.FC = () => {
 
         <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-10 py-8 lg:py-10 flex-1 flex flex-col justify-center">
           <div className="grid grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left Ledger: 6-Stage Narrative Index */}
+            {/* Left Ledger: 6-Stage Digital Process Index */}
             <div className="col-span-12 lg:col-span-4 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[#F04427]">
@@ -261,10 +275,10 @@ export const ProcessSection: React.FC = () => {
                 </p>
               </div>
 
-              {/* Clickable 6-Stage Architectural Stepper */}
+              {/* Clickable 6-Stage Stepper */}
               <div
                 role="tablist"
-                aria-label="Design process stages"
+                aria-label="Digital creation process stages"
                 className="mt-8 border-t border-[#C9C8BE] divide-y divide-[#C9C8BE]/70"
               >
                 {STAGES.map((stage, idx) => {
@@ -320,12 +334,11 @@ export const ProcessSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Blueprint Canvas: 6-Layer Progressive Architectural-to-Experience SVG */}
+            {/* Right Browser Canvas: 6-Layer Digital Experience Creation SVG */}
             <div className="col-span-12 lg:col-span-8">
               <div className="relative border border-[#C9C8BE] bg-[#E8E7DE]/45 p-3 sm:p-5 lg:p-6">
-                {/* Top technical bar */}
                 <div className="mb-3 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] text-[#77776F]">
-                  <span>BLUEPRINT CANVAS · FROM STRUCTURE TO EXPERIENCE</span>
+                  <span>BROWSER CANVAS · FROM WIREFRAME TO EXPERIENCE</span>
                   <span className="text-[#252522] tabular-nums">{currentStage.coordinates}</span>
                 </div>
 
@@ -337,7 +350,7 @@ export const ProcessSection: React.FC = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-full w-full"
                     role="img"
-                    aria-label="Six-stage architectural diagram evolving from empty grid to finished interactive web interface"
+                    aria-label="Six-stage digital website creation evolving from a blank browser canvas through wireframe grid, design tokens, interactive states, responsive mobile build, to final live website"
                   >
                     <defs>
                       <filter id={filterId} x="-20%" y="-20%" width="140%" height="140%">
@@ -359,8 +372,8 @@ export const ProcessSection: React.FC = () => {
                       <mask id={maskId}>
                         <circle
                           className="p-exp-blot"
-                          cx="645"
-                          cy="285"
+                          cx="610"
+                          cy="272"
                           r="0"
                           fill="white"
                           filter={`url(#${filterId})`}
@@ -368,171 +381,221 @@ export const ProcessSection: React.FC = () => {
                       </mask>
                     </defs>
 
-                    {/* ===== STAGE 01: STRUCTURE (Grid, Construction Axes, Diagonals) ===== */}
-                    <g className="p-stage-1" stroke="#C9C8BE" strokeWidth="1">
-                      {/* Vertical Swiss 8-col grid */}
-                      {[80, 190, 300, 410, 520, 630, 740, 880].map((x) => (
-                        <line key={`v-${x}`} className="p-stage-1-line" x1={x} y1="24" x2={x} y2="576" />
-                      ))}
-                      {/* Horizontal construction lines */}
-                      {[60, 140, 260, 390, 480, 540].map((y) => (
-                        <line key={`h-${y}`} className="p-stage-1-line" x1="36" y1={y} x2="924" y2={y} />
-                      ))}
-                      {/* Perspective architectural diagonals */}
-                      <line className="p-stage-1-line" x1="80" y1="60" x2="880" y2="540" strokeDasharray="4 5" />
-                      <line className="p-stage-1-line" x1="880" y1="60" x2="80" y2="540" strokeDasharray="4 5" />
-                      <circle className="p-stage-1-line" cx="480" cy="300" r="195" strokeDasharray="3 5" />
+                    {/* ===== STAGE 01: CONCEPT (Blank Browser Canvas & Direction) ===== */}
+                    <g className="p-stage-1">
+                      <rect className="p-stage-1-line" x="48" y="42" width="760" height="492" rx="3" stroke="#252522" strokeWidth="1.35" />
+                      <line className="p-stage-1-line" x1="48" y1="82" x2="808" y2="82" stroke="#252522" strokeWidth="1.1" />
+                      <circle className="p-stage-1-line" cx="72" cy="62" r="4.5" stroke="#252522" strokeWidth="1.1" />
+                      <circle className="p-stage-1-line" cx="90" cy="62" r="4.5" stroke="#252522" strokeWidth="1.1" />
+                      <circle className="p-stage-1-line" cx="108" cy="62" r="4.5" stroke="#F04427" strokeWidth="1.2" />
+                      <rect className="p-stage-1-line" x="236" y="52" width="320" height="20" rx="2" stroke="#C9C8BE" strokeWidth="1" />
+                      <text className="p-stage-1-fade" x="314" y="65" fill="#77776F" fontFamily="IBM Plex Mono, monospace" fontSize="9.5" letterSpacing="0.08em">
+                        https://amirmoradsaleh.com
+                      </text>
+                      {/* Initial visual direction focal center */}
+                      <text className="p-stage-1-fade" x="428" y="290" textAnchor="middle" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="22" fontWeight="600">
+                        01 · NEW DIGITAL CONCEPT
+                      </text>
+                      <text className="p-stage-1-fade" x="428" y="316" textAnchor="middle" fill="#77776F" fontFamily="IBM Plex Mono, monospace" fontSize="10.5" letterSpacing="0.12em">
+                        BLANK BROWSER CANVAS · DEFINE NARRATIVE &amp; DIRECTION
+                      </text>
                     </g>
 
-                    {/* ===== STAGE 02: FOUNDATION (Primary Volumes & Spatial Boundaries) ===== */}
-                    <g className="p-stage-2" stroke="#252522" strokeWidth="1.4">
-                      {/* Viewport shell */}
-                      <rect className="p-stage-2-line" x="80" y="60" width="800" height="480" />
-                      {/* Top navigation rail */}
-                      <line className="p-stage-2-line" x1="80" y1="112" x2="880" y2="112" />
-                      {/* Asymmetric split divider */}
-                      <line className="p-stage-2-line" x1="465" y1="112" x2="465" y2="430" />
-                      {/* Lower modular strip divider */}
-                      <line className="p-stage-2-line" x1="80" y1="430" x2="880" y2="430" />
-                      <line className="p-stage-2-line" x1="346" y1="430" x2="346" y2="540" />
-                      <line className="p-stage-2-line" x1="613" y1="430" x2="613" y2="540" />
+                    {/* ===== STAGE 02: STRUCTURE (12-Col Website Grid, Nav & Layout Blocks) ===== */}
+                    <g className="p-stage-2">
+                      {/* Modular column guides inside browser */}
+                      {[80, 174, 268, 362, 456, 550, 644, 776].map((x) => (
+                        <line key={`col-${x}`} className="p-stage-2-line" x1={x} y1="82" x2={x} y2="534" stroke="#C9C8BE" strokeWidth="0.85" strokeDasharray="3 4" />
+                      ))}
+                      {/* Top website navigation bar */}
+                      <line className="p-stage-2-line" x1="48" y1="130" x2="808" y2="130" stroke="#252522" strokeWidth="1.15" />
+                      {/* Hero split vertical divider */}
+                      <line className="p-stage-2-line" x1="432" y1="130" x2="432" y2="416" stroke="#252522" strokeWidth="1.1" />
+                      {/* Bottom modular feature strip */}
+                      <line className="p-stage-2-line" x1="48" y1="416" x2="808" y2="416" stroke="#252522" strokeWidth="1.15" />
+                      <line className="p-stage-2-line" x1="302" y1="416" x2="302" y2="534" stroke="#C9C8BE" strokeWidth="1" />
+                      <line className="p-stage-2-line" x1="556" y1="416" x2="556" y2="534" stroke="#C9C8BE" strokeWidth="1" />
+                      {/* Media & content layout containers */}
+                      <rect className="p-stage-2-line" x="458" y="154" width="322" height="238" stroke="#252522" strokeWidth="1.1" />
+                      <rect className="p-stage-2-line" x="80" y="168" width="290" height="22" stroke="#77776F" strokeWidth="0.95" />
+                      <rect className="p-stage-2-line" x="80" y="202" width="246" height="22" stroke="#77776F" strokeWidth="0.95" />
+                      <rect className="p-stage-2-line" x="80" y="236" width="194" height="22" stroke="#77776F" strokeWidth="0.95" />
                     </g>
 
-                    {/* ===== STAGE 03: COMPOSITION (Layout Proportions & Editorial Framing) ===== */}
+                    {/* ===== STAGE 03: DESIGN (Typography, Colors, Tokens & UI Components) ===== */}
                     <g className="p-stage-3">
-                      {/* Editorial headline proportion bars */}
-                      <rect className="p-stage-3-block" x="112" y="160" width="290" height="24" fill="#252522" fillOpacity="0.14" stroke="#252522" strokeWidth="1" />
-                      <rect className="p-stage-3-block" x="112" y="196" width="246" height="24" fill="#252522" fillOpacity="0.14" stroke="#252522" strokeWidth="1" />
-                      <rect className="p-stage-3-block" x="112" y="232" width="198" height="24" fill="#252522" fillOpacity="0.14" stroke="#252522" strokeWidth="1" />
-                      {/* Body measure frame */}
-                      <line className="p-stage-3-line" x1="112" y1="286" x2="375" y2="286" stroke="#77776F" strokeWidth="1.2" />
-                      <line className="p-stage-3-line" x1="112" y1="304" x2="348" y2="304" stroke="#77776F" strokeWidth="1.2" />
-                      <line className="p-stage-3-line" x1="112" y1="322" x2="296" y2="322" stroke="#77776F" strokeWidth="1.2" />
-                      {/* Right media showcase architectural frame */}
-                      <rect className="p-stage-3-line" x="498" y="142" width="350" height="256" stroke="#252522" strokeWidth="1.2" />
-                      <line className="p-stage-3-line" x1="498" y1="142" x2="848" y2="398" stroke="#C9C8BE" strokeWidth="0.9" />
-                      <line className="p-stage-3-line" x1="848" y1="142" x2="498" y2="398" stroke="#C9C8BE" strokeWidth="0.9" />
+                      <rect x="49" y="83" width="758" height="46" fill="#F2F1E9" />
+                      <rect x="49" y="131" width="382" height="284" fill="#F2F1E9" />
+                      <rect x="49" y="417" width="758" height="116" fill="#E8E7DE" fillOpacity="0.72" />
+
+                      {/* Brand & Nav */}
+                      <text className="p-stage-3-item" x="80" y="110" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="13" fontWeight="700" letterSpacing="0.06em">
+                        AURAL STUDIO
+                      </text>
+                      <text className="p-stage-3-item" x="488" y="109" fill="#252522" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11">
+                        Work
+                      </text>
+                      <text className="p-stage-3-item" x="550" y="109" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11">
+                        System
+                      </text>
+                      <text className="p-stage-3-item" x="620" y="109" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11">
+                        About
+                      </text>
+                      <rect className="p-stage-3-item" x="698" y="94" width="82" height="24" fill="#252522" />
+                      <text className="p-stage-3-item" x="716" y="110" fill="#F2F1E9" fontFamily="IBM Plex Mono, monospace" fontSize="9.5">
+                        CONTACT
+                      </text>
+
+                      {/* Typography & Copy */}
+                      <text className="p-stage-3-item" x="80" y="160" fill="#F04427" fontFamily="IBM Plex Mono, monospace" fontSize="9.5" letterSpacing="0.14em">
+                        DIGITAL EXPERIENCE
+                      </text>
+                      <text className="p-stage-3-item" x="80" y="198" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="29" fontWeight="700">
+                        INTERFACES
+                      </text>
+                      <text className="p-stage-3-item" x="80" y="232" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="29" fontWeight="700">
+                        CRAFTED FOR
+                      </text>
+                      <text className="p-stage-3-item" x="80" y="266" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="29" fontWeight="700">
+                        THE WEB.
+                      </text>
+
+                      <text className="p-stage-3-item" x="80" y="302" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="12">
+                        Expressive typography, modular UI grids,
+                      </text>
+                      <text className="p-stage-3-item" x="80" y="320" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="12">
+                        and responsive interactive storytelling.
+                      </text>
+
+                      {/* Primary & Secondary Buttons */}
+                      <rect className="p-stage-3-item" x="80" y="352" width="154" height="38" fill="#F04427" />
+                      <text className="p-stage-3-item" x="102" y="375" fill="#FFFFFF" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.08em">
+                        EXPLORE WORK →
+                      </text>
+                      <rect className="p-stage-3-item" x="246" y="352" width="112" height="38" stroke="#252522" strokeWidth="1.15" fill="none" />
+                      <text className="p-stage-3-item" x="268" y="375" fill="#252522" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.08em">
+                        SYSTEM UI
+                      </text>
+
+                      {/* Lower 3 UI Token & Feature Modules */}
+                      <text className="p-stage-3-item" x="80" y="454" fill="#F04427" fontFamily="IBM Plex Mono, monospace" fontSize="9.5">
+                        01 · DESIGN TOKENS
+                      </text>
+                      <circle className="p-stage-3-item" cx="90" cy="482" r="8" fill="#252522" />
+                      <circle className="p-stage-3-item" cx="112" cy="482" r="8" fill="#F04427" />
+                      <circle className="p-stage-3-item" cx="134" cy="482" r="8" fill="#F2F1E9" stroke="#252522" strokeWidth="1" />
+                      <text className="p-stage-3-item" x="154" y="486" fill="#252522" fontFamily="IBM Plex Mono, monospace" fontSize="10">
+                        #F04427
+                      </text>
+
+                      <text className="p-stage-3-item" x="328" y="454" fill="#77776F" fontFamily="IBM Plex Mono, monospace" fontSize="9.5">
+                        02 · TYPE SYSTEM
+                      </text>
+                      <text className="p-stage-3-item" x="328" y="486" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="16" fontWeight="600">
+                        Bricolage + Mono
+                      </text>
+
+                      <text className="p-stage-3-item" x="582" y="454" fill="#77776F" fontFamily="IBM Plex Mono, monospace" fontSize="9.5">
+                        03 · INTERACTION
+                      </text>
+                      <text className="p-stage-3-item" x="582" y="486" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="16" fontWeight="600">
+                        Scroll Choreography
+                      </text>
                     </g>
 
-                    {/* ===== STAGE 04: INTERACTION (UI States, Vectors & Vermilion Anchors) ===== */}
+                    {/* ===== STAGE 04: INTERACTION (Active States, Cursor & Hover Paths) ===== */}
                     <g className="p-stage-4">
-                      {/* Primary CTA button geometry */}
-                      <rect className="p-stage-4-line" x="112" y="358" width="156" height="38" stroke="#F04427" strokeWidth="1.6" />
-                      <rect className="p-stage-4-line" x="282" y="358" width="112" height="38" stroke="#252522" strokeWidth="1.2" />
-                      {/* Connection vector curve from CTA to media frame */}
+                      {/* Active nav indicator underline */}
+                      <line className="p-stage-4-line" x1="488" y1="116" x2="520" y2="116" stroke="#F04427" strokeWidth="2.2" />
+                      {/* Interactive vector path connecting button to preview */}
                       <path
                         className="p-stage-4-line"
-                        d="M 268 377 C 370 377, 420 270, 520 270"
+                        d="M 234 371 C 340 371, 386 272, 488 272"
                         stroke="#F04427"
-                        strokeWidth="1.35"
+                        strokeWidth="1.5"
                         strokeDasharray="5 4"
                       />
-                      {/* Nav hover underline vectors */}
-                      <line className="p-stage-4-line" x1="560" y1="96" x2="604" y2="96" stroke="#F04427" strokeWidth="2" />
-                      <line className="p-stage-4-line" x1="634" y1="96" x2="678" y2="96" stroke="#252522" strokeWidth="1" />
-                      <line className="p-stage-4-line" x1="708" y1="96" x2="752" y2="96" stroke="#252522" strokeWidth="1" />
-                      {/* Moving interactive cursor indicator */}
+                      {/* Active focus ring around primary CTA */}
+                      <rect className="p-stage-4-line" x="75" y="347" width="164" height="48" stroke="#F04427" strokeWidth="1" strokeDasharray="3 3" />
+
+                      {/* Animated interactive pointer cursor */}
                       <g className="p-cursor-node">
-                        <circle cx="520" cy="270" r="18" stroke="#F04427" strokeWidth="1.1" fill="#F04427" fillOpacity="0.1" />
-                        <rect x="516" y="266" width="8" height="8" fill="#F04427" />
+                        <circle cx="488" cy="272" r="22" stroke="#F04427" strokeWidth="1.15" fill="#F04427" fillOpacity="0.1" />
+                        <polygon
+                          points="484,264 484,286 491,280 498,290 502,288 495,277 503,277"
+                          fill="#F04427"
+                        />
+                        <rect x="514" y="256" width="96" height="22" fill="#252522" />
+                        <text x="524" y="270" fill="#F2F1E9" fontFamily="IBM Plex Mono, monospace" fontSize="8.5" letterSpacing="0.08em">
+                          HOVER · ACTIVE
+                        </text>
                       </g>
                     </g>
 
-                    {/* ===== STAGE 05: REFINEMENT (Typography, Contrast, Surface Polish) ===== */}
+                    {/* ===== STAGE 05: DEVELOPMENT (Responsive Mobile Viewport & Code Sync) ===== */}
                     <g className="p-stage-5">
-                      {/* Solid surface framing */}
-                      <rect x="81" y="61" width="798" height="50" fill="#F2F1E9" />
-                      <rect x="81" y="113" width="383" height="316" fill="#F2F1E9" />
-                      <rect x="81" y="431" width="798" height="108" fill="#E8E7DE" fillOpacity="0.72" />
+                      <g className="p-mobile-preview">
+                        {/* Overlapping sleek mobile viewport demonstrating responsive code */}
+                        <rect x="742" y="232" width="174" height="328" rx="14" fill="#F2F1E9" stroke="#252522" strokeWidth="1.8" />
+                        <line x1="742" y1="264" x2="916" y2="264" stroke="#C9C8BE" strokeWidth="1" />
+                        <rect x="808" y="246" width="42" height="5" rx="2.5" fill="#C9C8BE" />
 
-                      {/* Refined wordmark & navigation */}
-                      <text className="p-stage-5-item" x="112" y="91" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="13" fontWeight="600" letterSpacing="0.08em">
-                        AMIR MORADSALEH
-                      </text>
-                      <text className="p-stage-5-item" x="560" y="90" fill="#252522" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11">
-                        Work
-                      </text>
-                      <text className="p-stage-5-item" x="634" y="90" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11">
-                        Process
-                      </text>
-                      <text className="p-stage-5-item" x="708" y="90" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="11">
-                        About
-                      </text>
-                      <rect className="p-stage-5-item" x="780" y="75" width="72" height="24" fill="#252522" />
-                      <text className="p-stage-5-item" x="795" y="90" fill="#F2F1E9" fontFamily="IBM Plex Mono, monospace" fontSize="9.5">
-                        INQUIRE
-                      </text>
+                        <text className="p-stage-5-item" x="758" y="286" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="10" fontWeight="700">
+                          AURAL STUDIO
+                        </text>
+                        <text className="p-stage-5-item" x="758" y="316" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="17" fontWeight="700">
+                          INTERFACES
+                        </text>
+                        <text className="p-stage-5-item" x="758" y="335" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="17" fontWeight="700">
+                          FOR THE WEB.
+                        </text>
 
-                      {/* Refined editorial headline & copy */}
-                      <text className="p-stage-5-item" x="112" y="142" fill="#F04427" fontFamily="IBM Plex Mono, monospace" fontSize="9.5" letterSpacing="0.14em">
-                        DIGITAL ARCHITECTURE
-                      </text>
-                      <text className="p-stage-5-item" x="112" y="182" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="29" fontWeight="600">
-                        SYSTEMS BUILT
-                      </text>
-                      <text className="p-stage-5-item" x="112" y="216" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="29" fontWeight="600">
-                        FOR CLARITY
-                      </text>
-                      <text className="p-stage-5-item" x="112" y="250" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="29" fontWeight="600">
-                        AND MOTION.
-                      </text>
-
-                      <text className="p-stage-5-item" x="112" y="290" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="12">
-                        Turning complex architecture into
-                      </text>
-                      <text className="p-stage-5-item" x="112" y="308" fill="#77776F" fontFamily="Plus Jakarta Sans, sans-serif" fontSize="12">
-                        intuitive, lasting web experiences.
-                      </text>
-
-                      {/* Refined CTA buttons */}
-                      <rect className="p-stage-5-item" x="112" y="358" width="156" height="38" fill="#F04427" />
-                      <text className="p-stage-5-item" x="132" y="381" fill="#FFFFFF" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.1em">
-                        VIEW SELECTED WORK
-                      </text>
-                      <rect className="p-stage-5-item" x="282" y="358" width="112" height="38" fill="none" stroke="#252522" strokeWidth="1.2" />
-                      <text className="p-stage-5-item" x="307" y="381" fill="#252522" fontFamily="IBM Plex Mono, monospace" fontSize="10" letterSpacing="0.1em">
-                        PROCESS
-                      </text>
-
-                      {/* Lower 3 architectural capability cells */}
-                      <text className="p-stage-5-item" x="112" y="468" fill="#F04427" fontFamily="IBM Plex Mono, monospace" fontSize="10">01 · DIRECTION</text>
-                      <text className="p-stage-5-item" x="112" y="494" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="15" fontWeight="600">Visual Systems</text>
-
-                      <text className="p-stage-5-item" x="374" y="468" fill="#77776F" fontFamily="IBM Plex Mono, monospace" fontSize="10">02 · MOTION</text>
-                      <text className="p-stage-5-item" x="374" y="494" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="15" fontWeight="600">Scroll Choreography</text>
-
-                      <text className="p-stage-5-item" x="640" y="468" fill="#77776F" fontFamily="IBM Plex Mono, monospace" fontSize="10">03 · CRAFT</text>
-                      <text className="p-stage-5-item" x="640" y="494" fill="#252522" fontFamily="Bricolage Grotesque, sans-serif" fontSize="15" fontWeight="600">Frontend Engineering</text>
+                        <rect className="p-stage-5-item" x="758" y="352" width="142" height="114" fill="#E8E7DE" stroke="#252522" strokeWidth="1" />
+                        <image
+                          href={portfolioAssets.workBrandExperienceUi}
+                          x="758"
+                          y="352"
+                          width="142"
+                          height="114"
+                          preserveAspectRatio="xMidYMid slice"
+                        />
+                        <rect className="p-stage-5-item" x="758" y="480" width="142" height="30" fill="#F04427" />
+                        <text className="p-stage-5-item" x="786" y="499" fill="#FFFFFF" fontFamily="IBM Plex Mono, monospace" fontSize="9">
+                          EXPLORE →
+                        </text>
+                        <text className="p-stage-5-item" x="758" y="536" fill="#77776F" fontFamily="IBM Plex Mono, monospace" fontSize="8.5">
+                          390PX · SYNCED
+                        </text>
+                      </g>
                     </g>
 
-                    {/* ===== STAGE 06: EXPERIENCE (Organic Ink-Masked Live Visual Composition) ===== */}
+                    {/* ===== STAGE 06: EXPERIENCE (Organic Ink-Masked Live Website Reveal) ===== */}
                     <g className="p-stage-6">
                       <g mask={`url(#${maskId})`}>
                         <image
-                          href={portfolioAssets.workBrandExperience}
-                          x="498"
-                          y="142"
-                          width="350"
-                          height="256"
+                          href={portfolioAssets.workBrandExperienceUi}
+                          x="458"
+                          y="154"
+                          width="322"
+                          height="238"
                           preserveAspectRatio="xMidYMid slice"
                         />
-                        {/* Clean minimal overlay frame on revealed experience */}
-                        <rect x="498" y="142" width="350" height="256" stroke="#252522" strokeWidth="1.2" />
-                        <rect x="514" y="356" width="166" height="26" fill="#F2F1E9" fillOpacity="0.92" />
-                        <text x="524" y="373" fill="#252522" fontFamily="IBM Plex Mono, monospace" fontSize="9.5" letterSpacing="0.08em">
-                          EXPERIENCE · LIVE VIEW
+                        <rect x="458" y="154" width="322" height="238" stroke="#252522" strokeWidth="1.2" />
+                        <rect x="472" y="352" width="154" height="26" fill="#F2F1E9" fillOpacity="0.94" />
+                        <text x="482" y="369" fill="#252522" fontFamily="IBM Plex Mono, monospace" fontSize="9.5" letterSpacing="0.08em">
+                          LIVE WEBSITE · READY
                         </text>
                       </g>
                     </g>
                   </svg>
                 </div>
 
-                {/* Bottom stage progress hint */}
+                {/* Bottom progress hint */}
                 <div className="mt-3 flex items-center justify-between font-mono text-[10px] tracking-[0.1em] text-[#77776F]">
                   <span>
                     {isDesktopPinned
-                      ? 'KEEP SCROLLING TO TRANSFORM BLUEPRINT — SCROLL UP TO REVERSE'
-                      : 'SELECT ANY STAGE ABOVE TO INSPECT THE TRANSFORMATION'}
+                      ? 'KEEP SCROLLING TO BUILD THE INTERFACE — SCROLL UP TO REVERSE'
+                      : 'SELECT ANY STAGE ABOVE TO INSPECT THE INTERFACE TRANSFORMATION'}
                   </span>
                   <span className="tabular-nums text-[#252522]">
                     {currentStage.number} / 06

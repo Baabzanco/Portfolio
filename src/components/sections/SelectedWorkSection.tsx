@@ -41,7 +41,7 @@ export const SelectedWorkSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Asymmetric Architectural Editorial Grid */}
+        {/* Asymmetric Editorial Modular Grid */}
         <div className="mt-12 lg:mt-16 grid grid-cols-12 gap-y-16 lg:gap-x-10 lg:gap-y-24">
           {projects.map((project) => (
             <article
@@ -54,7 +54,7 @@ export const SelectedWorkSection: React.FC = () => {
                 data-cursor-label="VIEW CASE"
                 className="group block focus-visible:outline-2 focus-visible:outline-[#F04427]"
               >
-                {/* Top technical metadata strip — clean unboxed text */}
+                {/* Top technical metadata strip */}
                 <div className="mb-3 flex items-center justify-between gap-4 font-mono text-[11px] tracking-[0.1em]">
                   <div className="flex items-center gap-2.5">
                     <span className="h-2 w-2 bg-[#C9C8BE] group-hover:bg-[#F04427] transition-colors duration-200" />
@@ -73,18 +73,17 @@ export const SelectedWorkSection: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Organic Ink-Revealed Visual Frame */}
+                {/* Organic Ink-Revealed Web Interface Preview */}
                 <div className="relative border border-[#C9C8BE] group-hover:border-[#252522] transition-colors duration-300 overflow-hidden bg-[#E8E7DE]">
                   <InkReveal
                     src={project.heroImage}
                     alt={project.heroImageAlt}
                     aspectClass={project.aspectClass}
                     fallbackTitle={project.title}
-                    imgClassName="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                    imgClassName="transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]"
                   />
 
-                  {/* Subtle corner coordinate plate */}
-                  <div className="pointer-events-none absolute top-3 right-3 z-10 bg-[#F2F1E9]/90 border border-[#C9C8BE] px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] text-[#252522] opacity-80 group-hover:opacity-100 group-hover:border-[#F04427] transition-all duration-200">
+                  <div className="pointer-events-none absolute top-3 right-3 z-10 bg-[#F2F1E9]/92 border border-[#C9C8BE] px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] text-[#252522] opacity-85 group-hover:opacity-100 group-hover:border-[#F04427] transition-all duration-200">
                     {project.coordinates}
                   </div>
                 </div>
@@ -114,9 +113,9 @@ export const SelectedWorkSection: React.FC = () => {
         <div className="mt-16 pt-6 border-t border-[#C9C8BE] flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-[#77776F]">
           <div className="flex items-center gap-2.5">
             <RegistrationMark />
-            <span>ALL CASE STUDIES INCLUDE INTERACTIVE TEMPLATES &amp; EDITABLE SPECIFICATIONS</span>
+            <span>ALL CASE STUDIES INCLUDE INTERACTIVE UI TEMPLATES &amp; EDITABLE SPECIFICATIONS</span>
           </div>
-          <span className="tabular-nums">04 / 04 PLATES</span>
+          <span className="tabular-nums">04 / 04 CASE STUDIES</span>
         </div>
       </div>
     </section>

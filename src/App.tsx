@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { SmoothScrollProvider } from './components/animations/SmoothScroll';
 import { CustomCursor } from './components/animations/CustomCursor';
-import { ArchitecturalBackdropGrid } from './components/layout/GridSystem';
+import { EditorialGridBackdrop } from './components/layout/GridSystem';
 import { Navigation } from './components/layout/Navigation';
 import { Footer } from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
@@ -13,7 +13,7 @@ export function App() {
     <BrowserRouter>
       <SmoothScrollProvider>
         <div className="relative min-h-screen bg-[#F2F1E9] text-[#252522]">
-          <ArchitecturalBackdropGrid />
+          <EditorialGridBackdrop />
           <CustomCursor />
           <Navigation />
 

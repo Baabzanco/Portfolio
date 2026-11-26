@@ -143,7 +143,7 @@ export const CustomCursor: React.FC = () => {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-50 opacity-0 select-none"
     >
-      {/* Subtle full-viewport architectural crosshair hairlines */}
+      {/* Subtle full-viewport digital crosshair hairlines */}
       <div
         ref={hLineRef}
         className="fixed top-0 left-0 h-px w-full bg-[#252522]/[0.07]"
@@ -153,7 +153,7 @@ export const CustomCursor: React.FC = () => {
         className="fixed top-0 left-0 h-full w-px bg-[#252522]/[0.07]"
       />
 
-      {/* Trailing architectural frame + contextual state label */}
+      {/* Trailing interactive cursor frame + contextual state label */}
       <div
         ref={ringRef}
         className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center border border-[#252522]/40"
@@ -165,7 +165,7 @@ export const CustomCursor: React.FC = () => {
         />
       </div>
 
-      {/* Crisp vermilion architectural square marker + live coordinates */}
+      {/* Crisp vermilion digital pointer marker + live coordinates */}
       <div
         ref={dotRef}
         className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2"

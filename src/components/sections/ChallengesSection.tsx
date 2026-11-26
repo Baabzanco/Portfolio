@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteConfig } from '../../data/siteConfig';
 import { SectionHeaderBar } from '../layout/GridSystem';
-import { ChallengeDiagram } from '../graphics/ArchitecturalIllustrations';
+import { ChallengeInterfaceDiagram } from '../graphics/DigitalInterfaceGraphics';
 import { TextReveal } from '../animations/TextReveal';
 import { useSmoothScroll } from '../animations/SmoothScroll';
 
@@ -37,7 +37,7 @@ export const ChallengesSection: React.FC = () => {
         }
       );
 
-      // Animate each illustration's SVG strokes independently
+      // Animate each web-design SVG diagram independently
       cards.forEach((card, index) => {
         const paths = card.querySelectorAll<SVGGeometryElement>('.challenge-draw-path');
         paths.forEach((path) => {
@@ -72,10 +72,10 @@ export const ChallengesSection: React.FC = () => {
       <SectionHeaderBar
         number={siteConfig.challenges.sectionNumber}
         label={siteConfig.challenges.sectionLabel}
-        metaRight="FOUR STRUCTURAL PILLARS"
+        metaRight="FOUR DIGITAL PRINCIPLES"
       />
 
-      {/* Four Modular Architectural Columns */}
+      {/* Four Modular Web-Design Columns */}
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-b border-[#C9C8BE]">
           {siteConfig.challenges.items.map((item, idx) => {
@@ -95,7 +95,6 @@ export const ChallengesSection: React.FC = () => {
                   idx < 2 ? 'border-b sm:border-b lg:border-b-0 border-[#C9C8BE]' : idx === 2 ? 'border-b sm:border-b-0 border-[#C9C8BE]' : ''
                 } ${isHovered ? 'bg-[#E8E7DE]/75' : 'bg-transparent'}`}
               >
-                {/* Column index & technical descriptor */}
                 <div>
                   <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.1em]">
                     <span
@@ -110,9 +109,9 @@ export const ChallengesSection: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Unique Architectural Illustration */}
+                  {/* Unique Web-Design UI Illustration */}
                   <div className="my-7 aspect-[13/9] w-full bg-[#F2F1E9]/85 border border-[#C9C8BE] p-2">
-                    <ChallengeDiagram
+                    <ChallengeInterfaceDiagram
                       type={item.id as 'clarity' | 'structure' | 'interaction' | 'performance'}
                       active={isHovered}
                     />
@@ -141,7 +140,7 @@ export const ChallengesSection: React.FC = () => {
                       isHovered ? 'text-[#F04427]' : 'text-[#77776F]'
                     }`}
                   >
-                    {isHovered ? 'ALIGNED' : 'INSPECT'}
+                    {isHovered ? 'ACTIVE' : 'INSPECT'}
                   </span>
                 </div>
               </article>
@@ -162,10 +161,10 @@ export const ChallengesSection: React.FC = () => {
             </div>
             <div className="col-span-12 lg:col-span-3 lg:text-right">
               <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#77776F]">
-                Next Chapter · Scroll Blueprint
+                Next Chapter · Interface Process
               </p>
               <p className="mt-1 text-sm text-[#252522]">
-                Watch structure evolve into interface.
+                Watch a website come to life in six stages.
               </p>
             </div>
           </div>

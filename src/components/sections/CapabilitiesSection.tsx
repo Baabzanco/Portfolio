@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
 import { SectionHeaderBar, RegistrationMark } from '../layout/GridSystem';
-import { CapabilitySpecimenSvg } from '../graphics/ArchitecturalIllustrations';
+import { CapabilityInterfaceSpecimen } from '../graphics/DigitalInterfaceGraphics';
 import { TextReveal } from '../animations/TextReveal';
 
 export const CapabilitiesSection: React.FC = () => {
@@ -20,12 +20,12 @@ export const CapabilitiesSection: React.FC = () => {
       <SectionHeaderBar
         number={siteConfig.capabilities.sectionNumber}
         label={siteConfig.capabilities.sectionLabel}
-        metaRight="05 CORE DISCIPLINES"
+        metaRight="05 DIGITAL DISCIPLINES"
       />
 
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Architectural Grid Accordion */}
+          {/* Left Column: Modular Editorial Accordion */}
           <div className="col-span-12 lg:col-span-7">
             <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#F04427] mb-4">
               What I Do
@@ -81,7 +81,6 @@ export const CapabilitiesSection: React.FC = () => {
                       </span>
                     </button>
 
-                    {/* Smooth CSS grid accordion expansion */}
                     <div
                       className={`grid transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                         isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
@@ -119,7 +118,7 @@ export const CapabilitiesSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Synced Live Architectural Specimen */}
+          {/* Right Column: Synced Live Digital Interface Specimen */}
           <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-24">
             <div className="border border-[#C9C8BE] bg-[#E8E7DE]/50 p-5 sm:p-6">
               <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.12em] text-[#77776F] mb-4">
@@ -131,7 +130,7 @@ export const CapabilitiesSection: React.FC = () => {
               </div>
 
               <div className="aspect-[42/34] w-full bg-[#F2F1E9] border border-[#C9C8BE] p-3">
-                <CapabilitySpecimenSvg capabilityId={activeCapability.id} />
+                <CapabilityInterfaceSpecimen capabilityId={activeCapability.id} />
               </div>
 
               <div className="mt-5 pt-4 border-t border-[#C9C8BE] flex items-center justify-between gap-4">

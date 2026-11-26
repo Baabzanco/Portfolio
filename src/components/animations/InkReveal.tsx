@@ -17,9 +17,9 @@ interface InkRevealProps {
 }
 
 /**
- * Organic ink-like SVG mask reveal for editorial imagery.
- * Uses feTurbulence + feDisplacementMap to create organic paper-ink edges
- * that expand smoothly as the element scrolls into view (reversing naturally on upward scroll).
+ * Organic ink-like SVG mask reveal for editorial digital imagery.
+ * Uses feTurbulence + feDisplacementMap to create organic ink edges
+ * that bloom smoothly as the element scrolls into view (reversing on upward scroll).
  */
 export const InkReveal: React.FC<InkRevealProps> = ({
   src,
@@ -27,7 +27,7 @@ export const InkReveal: React.FC<InkRevealProps> = ({
   aspectClass = 'aspect-[4/3]',
   className = '',
   imgClassName = '',
-  fallbackTitle = 'Architectural Study',
+  fallbackTitle = 'Digital Interface Preview',
   scrub = false,
   priority = false,
 }) => {
@@ -92,7 +92,7 @@ export const InkReveal: React.FC<InkRevealProps> = ({
       if (img) {
         tl.fromTo(
           img,
-          { scale: 1.09 },
+          { scale: 1.07 },
           { scale: 1, duration: 1.35, ease: 'power3.out' },
           0
         );
@@ -107,16 +107,20 @@ export const InkReveal: React.FC<InkRevealProps> = ({
       ref={wrapperRef}
       className={`relative overflow-hidden bg-[#E8E7DE] ${aspectClass} ${className}`}
     >
-      {/* Underlying architectural blueprint wireframe visible before/around ink bloom */}
+      {/* Underlying UI browser wireframe visible before/around ink bloom */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 arch-blueprint-bg opacity-80 flex items-center justify-center"
+        className="absolute inset-0 ui-canvas-grid opacity-80 flex items-center justify-center"
       >
-        <svg viewBox="0 0 200 150" className="w-2/3 h-2/3 text-[#C9C8BE]" fill="none">
-          <rect x="20" y="20" width="160" height="110" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 3" />
-          <line x1="20" y1="20" x2="180" y2="130" stroke="currentColor" strokeWidth="0.5" />
-          <line x1="180" y1="20" x2="20" y2="130" stroke="currentColor" strokeWidth="0.5" />
-          <circle cx="100" cy="75" r="24" stroke="currentColor" strokeWidth="0.75" />
+        <svg viewBox="0 0 220 150" className="w-2/3 h-2/3 text-[#C9C8BE]" fill="none">
+          <rect x="18" y="18" width="184" height="114" rx="2" stroke="currentColor" strokeWidth="0.9" />
+          <line x1="18" y1="36" x2="202" y2="36" stroke="currentColor" strokeWidth="0.8" />
+          <circle cx="28" cy="27" r="2" fill="currentColor" />
+          <circle cx="36" cy="27" r="2" fill="currentColor" />
+          <circle cx="44" cy="27" r="2" fill="currentColor" />
+          <rect x="30" y="48" width="74" height="10" stroke="currentColor" strokeWidth="0.8" />
+          <rect x="30" y="66" width="54" height="6" stroke="currentColor" strokeWidth="0.7" />
+          <rect x="116" y="48" width="74" height="68" stroke="currentColor" strokeWidth="0.8" strokeDasharray="3 3" />
         </svg>
       </div>
 
@@ -183,7 +187,7 @@ export const InkReveal: React.FC<InkRevealProps> = ({
       ) : (
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center border border-[#C9C8BE] bg-[#E8E7DE] p-6 text-center">
           <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#77776F]">
-            Architectural Plate
+            Digital Preview
           </span>
           <span className="mt-2 font-display text-lg font-medium text-[#252522]">
             {fallbackTitle}

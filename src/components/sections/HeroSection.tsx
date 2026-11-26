@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDownRight } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
 import { TextReveal } from '../animations/TextReveal';
-import { HeroArchitecturalWireframe } from '../graphics/ArchitecturalIllustrations';
+import { HeroBrowserWireframe } from '../graphics/DigitalInterfaceGraphics';
 import { RegistrationMark } from '../layout/GridSystem';
 import { useSmoothScroll } from '../animations/SmoothScroll';
 
@@ -27,8 +27,8 @@ export const HeroSection: React.FC = () => {
     if (!section || reducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // 1. Choreographed initial entrance sequence:
-      // Grid/meta -> Wireframe progressive stroke draw -> Headline stagger -> Annotations -> Vermilion marker
+      // 1. Progressive drawing sequence:
+      // Browser frames -> nav lines -> layout grid -> type & button wireframes -> interactive cursor marker
       const drawLines = section.querySelectorAll<SVGGeometryElement>('.hero-draw-line');
       drawLines.forEach((line) => {
         const length = line.getTotalLength ? line.getTotalLength() : 280;
@@ -55,10 +55,10 @@ export const HeroSection: React.FC = () => {
           {
             strokeDashoffset: 0,
             duration: 1.45,
-            stagger: 0.032,
+            stagger: 0.028,
             ease: 'power2.inOut',
           },
-          0.18
+          0.16
         );
       }
 
@@ -76,7 +76,7 @@ export const HeroSection: React.FC = () => {
       if (marker) {
         introTl.fromTo(
           marker,
-          { opacity: 0, scale: 0.5, transformOrigin: '515px 404px' },
+          { opacity: 0, scale: 0.55, transformOrigin: '234px 370px' },
           { opacity: 1, scale: 1, duration: 0.7, ease: 'back.out(1.6)' },
           1.12
         );
@@ -91,18 +91,18 @@ export const HeroSection: React.FC = () => {
         );
       }
 
-      // Subtle architectural render reveal on initial rest, then dramatic scroll-scrubbed shift
+      // Subtle preview of the finished digital interface behind the wireframe on load
       if (renderLayerRef.current) {
         introTl.fromTo(
           renderLayerRef.current,
-          { opacity: 0.16, clipPath: 'inset(0% 0% 100% 0%)' },
-          { opacity: 0.24, clipPath: 'inset(0% 0% 42% 0%)', duration: 1.25, ease: 'power3.out' },
-          0.75
+          { opacity: 0.12, clipPath: 'inset(0% 0% 100% 0%)' },
+          { opacity: 0.24, clipPath: 'inset(0% 0% 48% 0%)', duration: 1.25, ease: 'power3.out' },
+          0.78
         );
       }
 
-      // 2. Scroll-choreographed hero transition:
-      // As user scrolls out of Hero, wireframe fades subtly while architectural render expands cleanly & headline shifts
+      // 2. Scroll-choreographed transformation:
+      // Wireframe progressively yields to the completed website interface as user scrolls
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -116,9 +116,9 @@ export const HeroSection: React.FC = () => {
         scrollTl.to(
           renderLayerRef.current,
           {
-            opacity: 0.96,
+            opacity: 0.98,
             clipPath: 'inset(0% 0% 0% 0%)',
-            scale: 1.05,
+            scale: 1.04,
             ease: 'none',
           },
           0
@@ -129,7 +129,7 @@ export const HeroSection: React.FC = () => {
         scrollTl.to(
           wireframeLayerRef.current,
           {
-            opacity: 0.35,
+            opacity: 0.22,
             yPercent: -6,
             scale: 1.03,
             ease: 'none',
@@ -160,7 +160,7 @@ export const HeroSection: React.FC = () => {
       id="top"
       className="relative z-10 pt-14 lg:pt-16 border-b border-[#C9C8BE]"
     >
-      {/* Top editorial metadata rail inside hero (role positioning + availability + chapter index) */}
+      {/* Top editorial metadata rail */}
       <div
         ref={metaRailRef}
         className="border-b border-[#C9C8BE] bg-[#F2F1E9]/70"
@@ -183,14 +183,14 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Main asymmetric Hero architectural grid */}
+      {/* Main asymmetric Hero editorial grid */}
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-12 items-stretch">
           {/* Left Typographic Column */}
           <div className="col-span-12 lg:col-span-6 flex flex-col justify-between py-10 sm:py-14 lg:py-16 lg:pr-10 lg:border-r lg:border-[#C9C8BE]">
             <div ref={headlineShiftRef} className="will-change-transform">
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#77776F] mb-5">
-                From Structure to Experience · Digital Architecture
+                From Wireframe to Experience · Digital Design
               </p>
 
               <TextReveal
@@ -208,7 +208,7 @@ export const HeroSection: React.FC = () => {
               </p>
             </div>
 
-            {/* CTAs + Primary Brand Statement */}
+            {/* CTAs + Scroll Prompt */}
             <div ref={ctaGroupRef} className="mt-10 lg:mt-14 pt-8 border-t border-[#C9C8BE]">
               <div className="flex flex-wrap items-center gap-4">
                 <button
@@ -232,7 +232,7 @@ export const HeroSection: React.FC = () => {
               </div>
 
               <div className="mt-8 flex items-center justify-between gap-4 font-mono text-[11px] tracking-[0.08em] text-[#77776F]">
-                <span>01 OBSERVE → 06 EXPERIENCE</span>
+                <span>01 CONCEPT → 06 EXPERIENCE</span>
                 <button
                   type="button"
                   onClick={() => scrollTo('#philosophy', { offset: -64 })}
@@ -246,13 +246,13 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Architectural Blueprint -> Render Composition */}
+          {/* Right Digital Interface Wireframe -> Live Website Composition */}
           <div className="col-span-12 lg:col-span-6 py-8 lg:py-12 lg:pl-10 flex flex-col justify-between">
             <div
               ref={visualFrameRef}
               className="relative w-full aspect-[16/10] lg:aspect-auto lg:h-full min-h-[300px] sm:min-h-[380px] border border-[#C9C8BE] bg-[#E8E7DE]/60 overflow-hidden"
             >
-              {/* Underlying architectural render — progressively unveiled on scroll */}
+              {/* Underlying finished website interface composition — progressively unveiled on scroll */}
               <div
                 ref={renderLayerRef}
                 className="absolute inset-0 will-change-transform"
@@ -266,22 +266,22 @@ export const HeroSection: React.FC = () => {
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="h-full w-full arch-blueprint-bg bg-[#E8E7DE]" />
+                  <div className="h-full w-full ui-canvas-grid bg-[#E8E7DE]" />
                 )}
               </div>
 
-              {/* Foreground original SVG architectural wireframe */}
+              {/* Foreground original SVG browser & interface wireframe */}
               <div
                 ref={wireframeLayerRef}
                 className="relative z-10 h-full w-full p-2 sm:p-4 will-change-transform"
               >
-                <HeroArchitecturalWireframe />
+                <HeroBrowserWireframe />
               </div>
 
-              {/* Corner architectural coordinates */}
-              <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between font-mono text-[10px] tracking-[0.1em] text-[#252522]/80 bg-[#F2F1E9]/80 px-2.5 py-1 border border-[#C9C8BE]/80">
-                <span>FIG 01.A · STRUCTURAL ELEVATION</span>
-                <span className="tabular-nums">X 1440 · Y 900</span>
+              {/* Digital UI metadata bar */}
+              <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between font-mono text-[10px] tracking-[0.1em] text-[#252522]/85 bg-[#F2F1E9]/88 px-2.5 py-1 border border-[#C9C8BE]/90">
+                <span>UI 01.A · WIREFRAME TO LIVE INTERFACE</span>
+                <span className="tabular-nums">1440 × 900</span>
               </div>
             </div>
           </div>

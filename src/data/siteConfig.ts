@@ -72,21 +72,21 @@ export const siteConfig = {
       'Independent web designer exploring the intersection of design, technology, interaction, and digital storytelling.',
     primaryCta: 'EXPLORE SELECTED WORK',
     secondaryCta: "LET'S TALK",
-    image: portfolioAssets.heroArchitecturalForm,
+    image: portfolioAssets.heroInterfaceComposition,
     imageAlt:
-      'Minimalist travertine architectural pavilion model resting on an ivory drafting surface with geometric daylight shadows',
+      'Minimalist experimental website interface displayed on a frameless studio screen showing Swiss editorial typography and vermilion accent button',
   },
 
   philosophy: {
     sectionNumber: '02',
     sectionLabel: 'Philosophy',
-    headline: 'A WEBSITE IS MORE THAN WHAT YOU SEE.',
+    headline: 'THE WEB DESERVES MORE THAN TEMPLATES.',
     supportingCopy:
-      'Behind every meaningful digital experience is a carefully considered system of structure, clarity, interaction, and intention.',
+      'Every digital experience is an opportunity to rethink how people interact with information, ideas, and technology.',
     annotations: [
-      { label: 'Principle A', value: 'Visual architecture precedes surface decoration' },
-      { label: 'Principle B', value: 'Motion clarifies spatial hierarchy and state' },
-      { label: 'Principle C', value: 'Engineering restraint sustains creative ambition' },
+      { label: 'Principle 01', value: 'Interface structure precedes visual ornament' },
+      { label: 'Principle 02', value: 'Motion clarifies hierarchy, state, and intent' },
+      { label: 'Principle 03', value: 'Clean frontend engineering sustains bold art direction' },
     ],
   },
 
@@ -100,93 +100,93 @@ export const siteConfig = {
         number: '01',
         title: 'CLARITY',
         description: 'Making complex information understandable.',
-        detailLabel: 'Information Hierarchy',
-        interactiveHint: 'Hover to align focal planes',
+        detailLabel: 'Typography & Hierarchy',
+        interactiveHint: 'Hover to refine type hierarchy',
       },
       {
         id: 'structure',
         number: '02',
         title: 'STRUCTURE',
         description: 'Creating coherent systems and intuitive navigation.',
-        detailLabel: 'Modular Proportion',
-        interactiveHint: 'Hover to reveal structural axes',
+        detailLabel: 'Modular UI Grid',
+        interactiveHint: 'Hover to highlight grid modules',
       },
       {
         id: 'interaction',
         number: '03',
         title: 'INTERACTION',
         description: 'Designing meaningful responses to user behavior.',
-        detailLabel: 'Tactile Feedback',
-        interactiveHint: 'Hover to trigger vector response',
+        detailLabel: 'Tactile UI States',
+        interactiveHint: 'Hover to trigger button state',
       },
       {
         id: 'performance',
         number: '04',
         title: 'PERFORMANCE',
         description: 'Making visual ambition work smoothly in the real world.',
-        detailLabel: '60fps Execution',
-        interactiveHint: 'Hover to inspect cadence curve',
+        detailLabel: '60fps Browser Craft',
+        interactiveHint: 'Hover to inspect render layers',
       },
     ] as ChallengeItem[],
   },
 
   process: {
     sectionNumber: '04',
-    sectionLabel: 'From Structure to Experience',
+    sectionLabel: 'The Creation of a Digital Experience',
     stages: [
       {
-        id: 'structure',
+        id: 'concept',
         number: '01',
-        title: 'STRUCTURE',
-        subtitle: 'Observation & Architectural Grid',
+        title: 'CONCEPT',
+        subtitle: 'Blank Canvas & Visual Direction',
         description:
-          'Every project begins on an empty coordinate field. Establishing proportions, margins, and visual tension before placing a single pixel.',
-        coordinates: 'GRID 12 × 08 · RATIO 1.618',
+          'Every website begins as a blank browser frame, a clear creative hypothesis, and an intentional visual direction tailored to the story.',
+        coordinates: 'VIEWPORT 1440 · STAGE 01',
       },
       {
-        id: 'foundation',
+        id: 'structure',
         number: '02',
-        title: 'FOUNDATION',
-        subtitle: 'Primary Volumes & Layout Boundaries',
+        title: 'STRUCTURE',
+        subtitle: 'Website Grid, Navigation & Layout',
         description:
-          'Translating narrative priorities into clear spatial zones, asymmetric anchors, and legible structural hierarchy.',
-        coordinates: 'ZONES 04 · MARGIN 48PX',
+          'Drawing the modular column grid, top navigation bar, content regions, and visual rhythm that keep complex pages intuitive.',
+        coordinates: '12-COL GRID · MARGIN 40PX',
       },
       {
-        id: 'composition',
+        id: 'design',
         number: '03',
-        title: 'COMPOSITION',
-        subtitle: 'Editorial Rhythm & Interface Framing',
+        title: 'DESIGN',
+        subtitle: 'Typography, Color & UI Components',
         description:
-          'Balancing typography, negative space, and imagery so each viewport reads with the quiet authority of an architectural monograph.',
-        coordinates: 'SCALE 4.5REM · MEASURE 68CH',
+          'Introducing expressive display type, calibrated color contrast, photography frames, and cohesive interface components.',
+        coordinates: 'TYPE 4.5REM · TOKEN SYSTEM',
       },
       {
         id: 'interaction',
         number: '04',
         title: 'INTERACTION',
-        subtitle: 'Behavior, States & Spatial Flow',
+        subtitle: 'Hover States, Cursors & Micro-Motion',
         description:
-          'Connecting components with deliberate motion pathways, responsive feedback, and natural scroll choreography.',
-        coordinates: 'CURVE EXPO.OUT · SCRUB SYNC',
+          'Bringing buttons, navigation links, cursor cues, and subtle motion pathways to life so every gesture earns an immediate response.',
+        coordinates: 'EASE EXPO.OUT · LIVE CURSOR',
       },
       {
-        id: 'refinement',
+        id: 'development',
         number: '05',
-        title: 'REFINEMENT',
-        subtitle: 'Typography, Contrast & Surface Detail',
+        title: 'DEVELOPMENT',
+        subtitle: 'Responsive Behavior & Production Polish',
         description:
-          'Calibrating tonal contrast, hairline dividers, micro-transitions, and responsive edge cases until nothing feels accidental.',
-        coordinates: 'INK #252522 · ACCENT #F04427',
+          'Translating static screens into responsive React components, synchronized scroll choreography, and crisp multi-device adaptability.',
+        coordinates: 'DESKTOP ↔ MOBILE · 60FPS',
       },
       {
         id: 'experience',
         number: '06',
         title: 'EXPERIENCE',
-        subtitle: 'Realized Digital Environment',
+        subtitle: 'Polished Interactive Website Revealed',
         description:
-          'The blueprint recedes into effortless clarity—delivering an interactive web experience built with purpose, precision, and character.',
-        coordinates: 'STATE COMPLETE · LIVE BUILD',
+          'Wireframes give way to a complete, expressive digital experience built with clarity, responsiveness, and unmistakable character.',
+        coordinates: 'BUILD READY · LIVE WEB',
       },
     ] as ProcessStage[],
   },
@@ -202,14 +202,14 @@ export const siteConfig = {
         shortDescription:
           'Visual direction, layout systems, typography, and digital interfaces.',
         extendedDescription:
-          'Crafting cohesive visual identities translated for the browser—grounded in Swiss typographic discipline, asymmetric editorial grids, and durable design systems.',
+          'Crafting cohesive digital identities for the browser—grounded in Swiss typographic discipline, asymmetric editorial grids, and reusable design systems.',
         deliverables: [
-          'Art Direction & Visual Language',
+          'Digital Art Direction & Visual Systems',
           'Modular Grid & Layout Systems',
           'Responsive Interface Design',
-          'Design Tokens & Component Specs',
+          'Design Tokens & Component Libraries',
         ],
-        diagramSpec: 'AXIS 12-COL · TYPE RATIO 1.414',
+        diagramSpec: '12-COL WEB · TYPE RATIO 1.414',
       },
       {
         id: 'creative-development',
@@ -218,14 +218,14 @@ export const siteConfig = {
         shortDescription:
           'Interactive frontend experiences and custom web implementations.',
         extendedDescription:
-          'Bridging design intent and production engineering with clean TypeScript architectures, custom SVG graphics, and fluid rendering across devices.',
+          'Bridging visual craft and production frontend engineering with clean React and TypeScript code, custom SVG graphics, and fluid browser performance.',
         deliverables: [
           'React, Next.js & TypeScript Frontend',
-          'Custom SVG & Canvas Graphics',
+          'Custom SVG & Interactive UI Graphics',
           'Performance-Tuned Production Code',
-          'Accessible Semantic Markup',
+          'Accessible Semantic Web Standards',
         ],
-        diagramSpec: 'DOM / SVG / GPU COMPOSITOR',
+        diagramSpec: 'TSX / SVG / GPU COMPOSITOR',
       },
       {
         id: 'interaction-design',
@@ -234,12 +234,12 @@ export const siteConfig = {
         shortDescription:
           'Motion systems, transitions, and meaningful interface behavior.',
         extendedDescription:
-          'Choreographing micro-interactions, page transitions, and responsive state changes that guide attention and make digital interfaces feel tactile and responsive.',
+          'Choreographing micro-interactions, page transitions, and responsive state feedback that guide attention and make websites feel alive and tactile.',
         deliverables: [
-          'Motion Systems & Easing Libraries',
-          'Custom Cursor & Hover Behavior',
-          'Interactive Prototypes',
-          'State & Feedback Architecture',
+          'Motion Systems & Easing Curves',
+          'Custom Cursor & Hover States',
+          'Interactive UI Prototypes',
+          'State & Feedback Choreography',
         ],
         diagramSpec: 'TIMING 180MS · CUBIC-BEZIER',
       },
@@ -250,14 +250,14 @@ export const siteConfig = {
         shortDescription:
           'End-to-end thinking across structure, content, design, and technology.',
         extendedDescription:
-          'Connecting narrative strategy, information architecture, visual design, and frontend craft into a unified digital presence rather than disconnected pages.',
+          'Unifying content strategy, information design, responsive UX, and frontend engineering into a coherent digital flagship across every viewport.',
         deliverables: [
-          'Experience Architecture & Sitemaps',
-          'Narrative Flow & Content Framing',
-          'Cross-Device Responsive Strategy',
-          'Launch Quality Assurance',
+          'Information & UX Strategy',
+          'Editorial Flow & Content Pacing',
+          'Multi-Device Responsive Systems',
+          'Launch Quality Verification',
         ],
-        diagramSpec: 'SYSTEM END-TO-END · 01—06',
+        diagramSpec: 'DESKTOP · TABLET · MOBILE',
       },
       {
         id: 'experimental-web',
@@ -266,14 +266,14 @@ export const siteConfig = {
         shortDescription:
           'Scroll-driven storytelling and unconventional digital experiences.',
         extendedDescription:
-          'Exploring scroll-pinned sequences, organic SVG masks, procedural illustrations, and editorial web compositions for studios and forward-thinking brands.',
+          'Pushing browser storytelling with scroll-pinned sequences, organic SVG ink masks, kinetic typography, and interactive editorial compositions.',
         deliverables: [
           'Scroll-Pinned Visual Narratives',
           'SVG Path & Ink Mask Choreography',
           'Interactive Editorial Showcases',
-          'Custom Creative Experiments',
+          'Creative Coding Experiments',
         ],
-        diagramSpec: 'SCRUB 0.00—1.00 · PIN ACTIVE',
+        diagramSpec: 'SCRUB 0.00—1.00 · KINETIC UI',
       },
     ] as CapabilityItem[],
   },
@@ -282,27 +282,27 @@ export const siteConfig = {
     sectionNumber: '08',
     sectionLabel: 'About',
     headline: 'DESIGNING WITH CURIOSITY. BUILDING WITH INTENTION.',
-    portraitImage: portfolioAssets.aboutDesignerPortrait,
+    portraitImage: portfolioAssets.aboutEditorialPortrait,
     portraitCaption:
-      'Editorial Portrait Placeholder — Replace with Amir Moradsaleh studio photograph',
+      'Studio Portrait Placeholder — Replace with Amir Moradsaleh photograph in src/data/assets.ts',
     introduction:
-      'Amir Moradsaleh is an independent web designer and digital experience designer focused on building thoughtful, expressive websites where editorial clarity meets interactive craft.',
+      'Amir Moradsaleh is an independent web designer and digital experience designer focused on creating expressive, thoughtful websites where editorial clarity meets interactive frontend craft.',
     philosophy:
-      'Every project is approached as an architectural system: strip away ornamental noise, establish structural clarity, and use motion only where it deepens understanding and emotion.',
+      'Every website starts by stripping away generic templates—organizing information cleanly, defining a distinct visual voice, and using motion to make every interaction memorable.',
     designInterests: [
-      'Editorial Grid Systems & Swiss Typography',
-      'Scroll-Driven Visual Storytelling',
-      'Minimalist Digital Art Direction',
-      'Tactile Interface & Micro-Interaction Craft',
+      'Editorial Web Grids & Swiss Typography',
+      'Scroll-Driven Digital Storytelling',
+      'Design Systems & Interface Craft',
+      'Interactive Micro-States & Prototyping',
     ],
     technicalInterests: [
-      'Modern Frontend Architecture (React, TypeScript)',
-      'GSAP ScrollTrigger & Choreography Pipelines',
-      'Procedural SVG, Masks & Optical Filters',
-      'Smooth Performance & Responsive Precision',
+      'Modern Frontend Engineering (React, TypeScript)',
+      'GSAP ScrollTrigger & Smooth Choreography',
+      'Interactive SVG, Masks & Optical Filters',
+      'Responsive Performance & Browser Craft',
     ],
     editableNotice:
-      'Biography, location, and studio background fields are structured placeholders ready to be customized in src/data/siteConfig.ts.',
+      'Biography, location, and studio details are structured placeholders ready to be customized in src/data/siteConfig.ts.',
   },
 
   contactSection: {

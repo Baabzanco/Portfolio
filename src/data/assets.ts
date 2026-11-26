@@ -1,15 +1,15 @@
-import heroArchitecturalForm from '../assets/images/hero_architectural_form_1795682505900.jpg';
-import workDigitalCommerce from '../assets/images/work_digital_commerce_1795682505252.jpg';
-import workBrandExperience from '../assets/images/work_brand_experience_1795682504779.jpg';
-import workCreativePlatform from '../assets/images/work_creative_platform_1795682505662.jpg';
-import workExperimentalInterface from '../assets/images/work_experimental_interface_1795682507444.jpg';
-import aboutDesignerPortrait from '../assets/images/about_designer_portrait_1795682505975.jpg';
+import heroInterfaceComposition from '../assets/images/hero_interface_composition_1795687689386.jpg';
+import workDigitalCommerceUi from '../assets/images/work_digital_commerce_ui_1795687690916.jpg';
+import workBrandExperienceUi from '../assets/images/work_brand_experience_editorial_ui_1795687841345.jpg';
+import workCreativePlatformUi from '../assets/images/work_creative_platform_ui_1795687691216.jpg';
+import workExperimentalInterfaceUi from '../assets/images/work_experimental_interface_ui_1795687695008.jpg';
+import aboutEditorialPortrait from '../assets/images/about_designer_studio_portrait_1795687841342.jpg';
 
 export const portfolioAssets = {
-  heroArchitecturalForm,
-  workDigitalCommerce,
-  workBrandExperience,
-  workCreativePlatform,
-  workExperimentalInterface,
-  aboutDesignerPortrait,
+  heroInterfaceComposition,
+  workDigitalCommerceUi,
+  workBrandExperienceUi,
+  workCreativePlatformUi,
+  workExperimentalInterfaceUi,
+  aboutEditorialPortrait,
 } as const;
