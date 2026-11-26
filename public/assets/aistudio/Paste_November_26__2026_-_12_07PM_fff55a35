@@ -1,0 +1,1103 @@
+# MASTER DEVELOPMENT PROMPT
+## AMIR MORADSALEH — Experimental Architectural Portfolio
+
+You are acting as a world-class Creative Director, Senior Digital Art Director, Senior Frontend Engineer, Creative Developer, Motion Designer, and Interactive Experience Architect.
+
+Your task is to design and fully implement an exceptionally crafted, highly interactive, scroll-driven personal portfolio website for:
+
+**AMIR MORADSALEH**
+Independent Web Designer & Digital Experience Designer.
+
+This is not a conventional portfolio website.
+
+It must be an immersive, visually sophisticated, editorial and architectural digital experience, strongly inspired by the visual language, layout philosophy, animation choreography, and scroll interactions of the supplied Heron AI / Bearplus website reference video.
+
+The reference video is a primary design reference.
+
+Study it carefully before implementation. Analyze its visual hierarchy, page composition, scroll behavior, animation timing, transitions, typography, image treatments, grid system, and interaction patterns.
+
+Do not simply create a generic portfolio with smooth scrolling and fade-in animations.
+
+Recreate the same level of creative ambition and interaction quality, while developing an original identity and narrative for Amir Moradsaleh.
+
+---
+
+# 01. CREATIVE DIRECTION
+
+## Core Concept
+
+The website should communicate the idea that a digital experience is not simply a collection of web pages.
+
+It is a carefully constructed system of visual language, interaction, structure, motion, and storytelling.
+
+The experience should feel like exploring an architectural blueprint that gradually transforms into a fully realized digital environment.
+
+The main creative metaphor:
+
+**FROM STRUCTURE TO EXPERIENCE.**
+
+Start with technical drawings, grids, wireframes, architectural sketches, and incomplete structures.
+
+As the user scrolls, these structures progressively transform into refined visual compositions, digital interfaces, and completed website experiences.
+
+The narrative should reflect the creative process of a web designer:
+
+1. Observe.
+2. Conceptualize.
+3. Structure.
+4. Design.
+5. Develop.
+6. Experience.
+
+## Visual References
+
+Use the supplied reference website video to reproduce the following characteristics:
+
+- Architectural editorial art direction.
+- Swiss-inspired modular grid layouts.
+- Warm ivory backgrounds.
+- Fine technical divider lines.
+- Oversized editorial typography.
+- Asymmetric compositions.
+- Architectural line illustrations.
+- Sketch-to-render transformations.
+- Scroll-pinned storytelling sections.
+- SVG path drawing animations.
+- Organic ink-like image reveals.
+- Minimal orange-red visual accents.
+- Technical annotation graphics.
+- Interactive crosshair cursor.
+- Carefully choreographed motion.
+- Large-scale typographic footer.
+
+The final result should feel like a premium independent creative studio website rather than a standard freelancer portfolio template.
+
+Do not copy the Heron AI logo, its brand assets, exact text, or proprietary illustrations.
+
+Develop an original visual identity for Amir.
+
+---
+
+# 02. BRAND IDENTITY
+
+## Brand Name
+
+AMIR MORADSALEH
+
+## Professional Positioning
+
+Independent Web Designer & Digital Experience Designer.
+
+## Primary Brand Statement
+
+"I design digital experiences that turn complex ideas into intuitive, memorable interactions."
+
+## Supporting Statement
+
+"From visual systems and interaction design to development and immersive storytelling, I build websites with purpose, precision, and character."
+
+## Brand Personality
+
+- Experimental
+- Intelligent
+- Precise
+- Minimal
+- Contemporary
+- Technical
+- Creative
+- Confident
+
+Avoid generic freelancer language, excessive gradients, generic startup aesthetics, and unnecessary decorative elements.
+
+## Color System
+
+Use a restrained architectural palette.
+
+Primary background:
+#F2F1E9
+
+Secondary background:
+#E8E7DE
+
+Primary typography:
+#252522
+
+Secondary typography:
+#77776F
+
+Technical divider:
+#C9C8BE
+
+Accent color:
+#F04427
+
+Pure white:
+#FFFFFF
+
+Use the orange-red accent sparingly for:
+
+- Interactive markers.
+- Important annotations.
+- Cursor details.
+- Selected interface states.
+- Diagram highlights.
+- CTA buttons.
+- Small architectural indicators.
+
+The overall design must remain predominantly warm ivory, black, and gray.
+
+## Typography
+
+Use a strong combination of:
+
+- A contemporary grotesk sans-serif for headlines.
+- A clean neutral sans-serif for body copy.
+- A technical monospace font for coordinates, labels, metadata, and annotations.
+
+Suggested fonts:
+
+- General Sans
+- Geist
+- Space Grotesk
+- Geist Mono
+
+Choose a consistent typography system with carefully controlled line heights, letter spacing, font weights, and responsive scaling.
+
+Oversized headlines should be a major visual feature.
+
+---
+
+# 03. GLOBAL LAYOUT SYSTEM
+
+Create a persistent architectural grid system.
+
+The grid must be visible across most sections.
+
+Requirements:
+
+- Thin 1px divider lines.
+- Consistent page margins.
+- Responsive modular columns.
+- Asymmetric content distribution.
+- Carefully aligned image and text boundaries.
+- Large editorial spaces.
+- Technical metadata labels.
+- Small section identifiers.
+- Consistent alignment rules.
+
+The grid should feel like an architectural drawing or technical publication.
+
+Use CSS Grid as the primary layout mechanism.
+
+Avoid using a single centered max-width container for every section.
+
+The page should have a distinctive modular composition.
+
+Create reusable grid components so the entire site maintains a coherent design language.
+
+---
+
+# 04. WEBSITE STRUCTURE AND STORYBOARD
+
+Build the website as a continuous visual narrative.
+
+The following sections must be implemented in this exact order.
+
+## SECTION 01 — HERO / THE INTRODUCTION
+
+Purpose: Establish the identity and immediately communicate the artistic direction.
+
+Composition:
+
+- Persistent top navigation.
+- Name / wordmark: AMIR MORADSALEH.
+- Small role description.
+- Availability indicator.
+- Navigation links.
+- A large architectural illustration occupying the primary visual area.
+- An oversized headline.
+- Small technical metadata.
+- Scroll indicator.
+
+Hero headline:
+
+"DESIGNING DIGITAL EXPERIENCES THAT MOVE PEOPLE."
+
+Supporting text:
+
+"Independent web designer exploring the intersection of design, technology, interaction, and digital storytelling."
+
+Primary CTA:
+
+"EXPLORE SELECTED WORK"
+
+Secondary CTA:
+
+"LET'S TALK"
+
+### Hero Visual
+
+Create an original architectural illustration representing a digital structure under construction.
+
+It should initially appear as a technical wireframe or architectural line drawing.
+
+The illustration may contain:
+
+- Geometric architectural structures.
+- Thin construction lines.
+- Measurement annotations.
+- Perspective guides.
+- Minimal orange markers.
+- Technical coordinates.
+
+### Hero Animation
+
+The first screen should feel carefully composed.
+
+On initial load:
+
+1. Grid lines appear.
+2. The logo and navigation are revealed.
+3. The architectural illustration is progressively drawn.
+4. The main headline enters with a staggered word reveal.
+5. Technical annotations appear.
+6. A subtle orange marker becomes visible.
+
+On scroll:
+
+- The hero composition gradually shifts.
+- The illustration changes scale and position.
+- Headline elements move independently.
+- The next section enters through a carefully choreographed transition.
+
+Avoid excessive animation before the user begins interacting.
+
+## SECTION 02 — PHILOSOPHY / THE PROBLEM WITH ORDINARY WEBSITES
+
+Narrative purpose:
+
+Explain that a website should be more than an attractive visual surface.
+
+Headline:
+
+"A WEBSITE IS MORE THAN WHAT YOU SEE."
+
+Supporting copy:
+
+"Behind every meaningful digital experience is a carefully considered system of structure, clarity, interaction, and intention."
+
+Layout:
+
+- Asymmetric two-column grid.
+- Large architectural illustration on one side.
+- Oversized typography on the other.
+- A large orange-red geometric circle or architectural marker.
+- Small supporting text.
+- Minimal technical labels.
+
+The illustration should evolve during scrolling.
+
+Use a sketch-to-render or line-to-solid visual transformation.
+
+## SECTION 03 — DESIGN CHALLENGES
+
+Introduce four principles that define the problems a thoughtful digital experience should solve.
+
+Four modular columns:
+
+01 — CLARITY
+Making complex information understandable.
+
+02 — STRUCTURE
+Creating coherent systems and intuitive navigation.
+
+03 — INTERACTION
+Designing meaningful responses to user behavior.
+
+04 — PERFORMANCE
+Making visual ambition work smoothly in the real world.
+
+Each column must contain:
+
+- A unique architectural or abstract technical illustration.
+- A small number.
+- A bold heading.
+- A short description.
+- A small interactive detail.
+
+Animate each illustration independently.
+
+The four columns should appear in a choreographed sequence as the user scrolls.
+
+End the section with a large editorial statement:
+
+"EVERY DETAIL HAS A PURPOSE."
+
+## SECTION 04 — THE DESIGN PROCESS / FROM STRUCTURE TO EXPERIENCE
+
+This is one of the most important sections.
+
+Implement a long scroll-pinned animation inspired by the architectural floor-plan transformation in the reference website.
+
+The section should remain pinned while the user scrolls through a multi-stage visual sequence.
+
+Suggested scroll duration: approximately 4000–5000px on desktop, adjusted through testing.
+
+### Visual Sequence
+
+Stage 01 — STRUCTURE
+
+An almost empty architectural grid.
+
+Only basic construction lines are visible.
+
+Stage 02 — FOUNDATION
+
+Primary shapes, boundaries, and layout structures are progressively drawn.
+
+Stage 03 — COMPOSITION
+
+More detailed elements emerge.
+
+The layout begins to resemble an actual website interface.
+
+Stage 04 — INTERACTION
+
+Interactive components, navigation, buttons, interface states, and connection lines appear.
+
+Stage 05 — REFINEMENT
+
+Typography, colors, spacing, and detailed interface components are revealed.
+
+Stage 06 — EXPERIENCE
+
+The completed visual composition is revealed.
+
+The result should communicate the transformation of an initial idea into a polished digital experience.
+
+### Important Implementation Requirements
+
+Use:
+
+- GSAP ScrollTrigger.
+- Scroll pinning.
+- Scroll scrubbing.
+- SVG path drawing.
+- SVG masks.
+- Layered visual compositions.
+- Carefully synchronized animation timelines.
+
+The animation must be directly controlled by scroll progress.
+
+If the user stops scrolling, the animation must stop at its current state.
+
+Scrolling backward must reverse the animation naturally.
+
+Do not use a pre-rendered video as a substitute for this animation.
+
+The architectural illustration must be composed of independently controllable elements.
+
+## SECTION 05 — SELECTED WORK / THE PORTFOLIO
+
+This is the most commercially important section.
+
+Headline:
+
+"SELECTED WORK. DISTINCT EXPERIENCES."
+
+Supporting copy:
+
+"A selection of digital experiences shaped by design, strategy, and thoughtful execution."
+
+Create an editorial project gallery.
+
+Do not use conventional equal-sized portfolio cards.
+
+Use an asymmetric modular grid inspired by architectural editorial layouts.
+
+Create four initial project placeholders:
+
+PROJECT 01
+DIGITAL COMMERCE
+
+PROJECT 02
+BRAND EXPERIENCE
+
+PROJECT 03
+CREATIVE PLATFORM
+
+PROJECT 04
+EXPERIMENTAL INTERFACE
+
+Use realistic visual placeholders or original generated visual assets.
+
+Do not invent real clients, awards, measurable results, or project descriptions.
+
+Every project must have an editable content structure.
+
+Each project should contain:
+
+- Project number.
+- Project title.
+- Category.
+- Year placeholder.
+- Short description placeholder.
+- Hero image.
+- Hover interaction.
+- View project interaction.
+
+### Project Interaction
+
+On hover:
+
+- Image scale changes subtly.
+- Technical metadata becomes more prominent.
+- A small orange indicator appears.
+- The cursor changes state.
+- Project title or category responds with restrained motion.
+
+On click, open a dedicated project detail page or a well-designed project case-study route.
+
+The case-study template should support:
+
+- Full-width hero visuals.
+- Project overview.
+- Design objectives.
+- Creative direction.
+- Process.
+- Interface previews.
+- Interaction demonstrations.
+- Technology stack.
+- Final outcome.
+
+Use editable sample data and clearly label content that still needs to be supplied by Amir.
+
+## SECTION 06 — THE DIGITAL EXPERIENCE
+
+Headline:
+
+"DESIGN IS NOT STATIC."
+
+Introduce the relationship between visual design and interaction.
+
+Create a sophisticated interactive composition showing a website interface being explored.
+
+The composition can include:
+
+- Floating interface layers.
+- Browser-like frames.
+- Interactive components.
+- Technical annotations.
+- Cursor movement.
+- Responsive layout demonstrations.
+- Subtle perspective and depth.
+
+Use this section to demonstrate the designer's interest in combining design and technology.
+
+The interactions should feel precise and intentional.
+
+Use CSS transforms and GSAP for the majority of the effects.
+
+Use WebGL only if a real three-dimensional scene provides a meaningful improvement.
+
+## SECTION 07 — CAPABILITIES / WHAT I DO
+
+Create a modular list of capabilities.
+
+01 — WEB DESIGN
+Visual direction, layout systems, typography, and digital interfaces.
+
+02 — CREATIVE DEVELOPMENT
+Interactive frontend experiences and custom web implementations.
+
+03 — INTERACTION DESIGN
+Motion systems, transitions, and meaningful interface behavior.
+
+04 — DIGITAL EXPERIENCE
+End-to-end thinking across structure, content, design, and technology.
+
+05 — EXPERIMENTAL WEB
+Scroll-driven storytelling and unconventional digital experiences.
+
+Use an interactive accordion system.
+
+When a capability is selected:
+
+- Expand its description.
+- Animate the active state.
+- Update an accompanying illustration or visual composition.
+- Highlight the selected category using the accent color.
+
+Do not use generic accordion styling.
+
+It must visually belong to the architectural grid system.
+
+## SECTION 08 — ABOUT / THE DESIGNER
+
+Headline:
+
+"DESIGNING WITH CURIOSITY. BUILDING WITH INTENTION."
+
+Present Amir Moradsaleh as an independent web designer.
+
+The layout should include:
+
+- Portrait placeholder.
+- Short professional introduction.
+- Creative philosophy.
+- Design and development interests.
+- Technical interests.
+- Location placeholder.
+- Contact link.
+
+Do not invent personal biography, professional history, education, location, or client experience.
+
+Use clearly editable placeholders for unknown information.
+
+Create a distinctive visual composition with a combination of typography, image, and technical metadata.
+
+## SECTION 09 — CONTACT / THE NEXT PROJECT
+
+This should feel like a strong editorial finale.
+
+Headline:
+
+"HAVE AN IDEA? LET'S MAKE IT REAL."
+
+Supporting copy:
+
+"Have a project in mind or looking to create something different? Let's start a conversation."
+
+Primary CTA:
+
+"START A PROJECT"
+
+Secondary CTA:
+
+"EMAIL ME"
+
+Include editable contact information placeholders.
+
+Create a striking final architectural visual.
+
+Use an oversized typographic composition with an interactive orange marker.
+
+## SECTION 10 — FOOTER / THE SIGNATURE
+
+Create a memorable footer inspired by the reference site's oversized architectural typography.
+
+The footer should contain:
+
+- AMIR MORADSALEH wordmark.
+- Navigation.
+- Social links.
+- Email placeholder.
+- Copyright.
+- Back to top control.
+
+The large wordmark should initially appear as an outlined technical drawing.
+
+When the cursor moves over it, reveal a dark ink-like fill inside the letterforms.
+
+The ink effect should have:
+
+- Organic edges.
+- Subtle blur.
+- Smooth movement.
+- Controlled distortion.
+- Responsive behavior.
+
+Use SVG masks and filters where appropriate.
+
+The footer should feel like the final page of an architectural design publication.
+
+---
+
+# 05. MOTION DESIGN SYSTEM
+
+Motion design is a core feature of this project, not a decorative enhancement.
+
+Build a reusable motion architecture.
+
+## Required Technologies
+
+- GSAP
+- GSAP ScrollTrigger
+- GSAP SplitText (if available through the appropriate license)
+- Lenis
+- SVG
+- CSS Masks
+- SVG Filters
+- Canvas 2D
+- Three.js or React Three Fiber only where justified
+
+## Required Animation Types
+
+1. Scroll-pinned sections.
+2. Scroll-scrubbed timelines.
+3. SVG stroke drawing.
+4. Sketch-to-render transitions.
+5. Organic ink image reveals.
+6. Split-word text animations.
+7. Staggered grid reveals.
+8. Image masking.
+9. Subtle parallax.
+10. Interactive cursor.
+11. Custom hover interactions.
+12. Interactive typography.
+13. Section transitions.
+14. Progressive architectural illustrations.
+15. Smooth reverse animations when scrolling upward.
+
+## Animation Principles
+
+Every animation must have a clear visual purpose.
+
+Use:
+
+- Carefully controlled easing.
+- Natural acceleration and deceleration.
+- Smooth transitions.
+- Appropriate stagger intervals.
+- Consistent animation durations.
+- Scroll progress synchronization.
+
+Avoid:
+
+- Random floating animations.
+- Excessive bounce effects.
+- Generic fade-in on every element.
+- Unnecessary 3D transformations.
+- Constant movement that distracts from content.
+- Long animations that make the website feel unresponsive.
+
+The result must feel deliberate, premium, and professionally art-directed.
+
+---
+
+# 06. CUSTOM CURSOR
+
+Create a custom cursor system for desktop.
+
+Visual design:
+
+- Small orange-red square or crosshair.
+- Subtle trailing movement.
+- Fine horizontal and vertical guide lines.
+- Optional coordinate display.
+- Different states for links, buttons, images, and interactive project elements.
+
+Cursor movement should be smooth but responsive.
+
+Do not use the custom cursor on touch devices.
+
+The default system cursor must remain available for accessibility and fallback scenarios.
+
+---
+
+# 07. TECHNICAL ARCHITECTURE
+
+Use the following recommended stack:
+
+Frontend:
+- Next.js
+- React
+- TypeScript
+
+Styling:
+- Tailwind CSS or modular CSS.
+- CSS Grid.
+- CSS Custom Properties.
+
+Animation:
+- GSAP.
+- ScrollTrigger.
+- SplitText where licensed.
+- Lenis.
+
+Graphics:
+- SVG.
+- SVG Filters.
+- Canvas 2D.
+- CSS Masks.
+- Three.js only for justified 3D scenes.
+
+Architecture:
+- Component-based.
+- Reusable design system.
+- Separate animation modules.
+- Editable project data.
+- Dedicated project detail routes.
+
+Suggested folder structure:
+
+src/
+  app/
+    page.tsx
+    work/
+      [slug]/
+        page.tsx
+    layout.tsx
+
+  components/
+    layout/
+      Navigation.tsx
+      Footer.tsx
+      GridSystem.tsx
+
+    sections/
+      HeroSection.tsx
+      PhilosophySection.tsx
+      ChallengesSection.tsx
+      ProcessSection.tsx
+      SelectedWorkSection.tsx
+      ExperienceSection.tsx
+      CapabilitiesSection.tsx
+      AboutSection.tsx
+      ContactSection.tsx
+
+    animations/
+      SmoothScroll.tsx
+      ScrollManager.tsx
+      TextReveal.tsx
+      SVGDraw.tsx
+      InkReveal.tsx
+      CustomCursor.tsx
+      ScrollPin.tsx
+
+    graphics/
+      ArchitecturalDrawing.tsx
+      BlueprintIllustration.tsx
+      TechnicalAnnotations.tsx
+
+  data/
+    projects.ts
+    siteConfig.ts
+
+  styles/
+    globals.css
+    tokens.css
+    animations.css
+
+This is a suggested architecture, not a restriction. Adapt it when a better implementation is justified.
+
+## Animation Lifecycle
+
+Use GSAP context and proper cleanup.
+
+Ensure:
+
+- ScrollTriggers are properly destroyed.
+- React component unmounts do not leave stale animations.
+- Resize events refresh scroll measurements.
+- Smooth scrolling and ScrollTrigger remain synchronized.
+- Animations do not initialize multiple times.
+- Route changes do not break animation state.
+
+Do not put the entire website animation logic in one giant component.
+
+Create reusable animation hooks or utilities.
+
+---
+
+# 08. SCROLL AND PERFORMANCE ENGINEERING
+
+This website contains complex scroll-driven animations.
+
+Performance is a priority.
+
+Requirements:
+
+- Synchronize Lenis with GSAP ScrollTrigger.
+- Use requestAnimationFrame appropriately.
+- Avoid excessive React state updates during scroll.
+- Animate transform and opacity wherever possible.
+- Optimize SVG complexity.
+- Lazy-load below-the-fold media.
+- Use responsive image formats.
+- Avoid unnecessary layout recalculations.
+- Use GPU-friendly animation techniques where appropriate.
+- Avoid excessive Canvas rendering.
+- Respect prefers-reduced-motion.
+- Provide simplified mobile animation sequences.
+
+Do not sacrifice the quality of the desktop experience, but ensure the website remains usable on mobile devices.
+
+Target smooth performance on modern desktop browsers.
+
+---
+
+# 09. RESPONSIVE DESIGN
+
+Design dedicated responsive experiences for:
+
+- Large desktop.
+- Standard desktop.
+- Tablet.
+- Mobile.
+
+Do not merely shrink the desktop layout.
+
+Mobile requirements:
+
+- Simplified modular grid.
+- Properly scaled typography.
+- Touch-friendly interactions.
+- No custom cursor.
+- Reduced or redesigned pinning.
+- Optimized illustrations.
+- No horizontal overflow.
+- Accessible navigation.
+- Appropriate scroll distances.
+- Responsive image crops.
+
+The mobile experience should preserve the website's artistic identity.
+
+---
+
+# 10. ASSET CREATION
+
+Do not rely on generic stock photography.
+
+The visual identity should primarily use original graphic assets.
+
+Create a coherent family of architectural and technical illustrations.
+
+Required assets:
+
+1. Hero architectural wireframe.
+2. Hero rendered architectural composition.
+3. Four technical illustrations for the challenges section.
+4. Progressive architectural drawing for the pinned process section.
+5. Website interface compositions for the selected work section.
+6. Abstract digital interface graphics.
+7. About section visual.
+8. Footer architectural wordmark.
+
+Use SVG for line-based illustrations whenever possible.
+
+For raster artwork, use high-quality WebP or AVIF assets.
+
+If AI-generated visuals are used, make sure all variations belonging to the same sketch-to-render sequence have identical compositions and camera angles.
+
+Do not create a slideshow as a replacement for genuine scroll-controlled transformations.
+
+Keep the visual assets organized and documented.
+
+---
+
+# 11. CONTENT AND DATA MANAGEMENT
+
+All project content must be editable from structured data files.
+
+Do not hardcode project information throughout the components.
+
+Create clear placeholders for information Amir has not supplied.
+
+Do not invent:
+
+- Client identities.
+- Project awards.
+- Project performance statistics.
+- Testimonials.
+- Professional qualifications.
+- Employment history.
+- Contact details.
+
+The initial version must be visually complete even when real portfolio content is not yet available.
+
+Use clearly identified placeholder projects with sophisticated original visual compositions.
+
+---
+
+# 12. QUALITY CONTROL AND ACCEPTANCE CRITERIA
+
+The project is not complete simply because the page renders.
+
+Perform a full implementation and quality review.
+
+## Visual Quality
+
+- The website must closely follow the supplied reference's visual language.
+- Typography must be carefully art-directed.
+- The architectural grid must be consistent.
+- The composition must feel premium and intentional.
+- Images must have coherent visual treatments.
+- There must be no generic template appearance.
+
+## Motion Quality
+
+- Scroll pinning must work correctly.
+- Scrubbed animations must follow scroll progress.
+- Reverse scrolling must work.
+- SVG drawing must be smooth.
+- Image reveals must look organic.
+- Text transitions must be synchronized.
+- Cursor interactions must work correctly.
+- No animation should remain broken after resizing.
+
+## Technical Quality
+
+- No TypeScript errors.
+- No broken routes.
+- No missing assets.
+- No console errors.
+- No React hydration errors.
+- No duplicate ScrollTriggers.
+- No memory leaks from animation instances.
+- No horizontal overflow.
+- No broken mobile layouts.
+
+## Browser Testing
+
+Test at minimum:
+
+- Chrome desktop.
+- Firefox desktop.
+- Safari where available.
+- Mobile viewport.
+- Tablet viewport.
+
+## Performance
+
+Measure:
+
+- Initial page load.
+- Image loading.
+- Scroll responsiveness.
+- Animation smoothness.
+- Layout shifts.
+
+Report any known limitations.
+
+---
+
+# 13. EXECUTION STRATEGY
+
+Do not stop after creating a design proposal or a static mockup.
+
+Implement the actual website.
+
+Follow this sequence:
+
+PHASE 1 — REFERENCE ANALYSIS
+
+Analyze the supplied reference video.
+
+Create a concise report describing:
+
+- Visual language.
+- Section structure.
+- Scroll choreography.
+- Animation techniques.
+- Layout system.
+- Graphic asset requirements.
+
+PHASE 2 — DESIGN SYSTEM
+
+Establish:
+
+- Color tokens.
+- Typography.
+- Grid.
+- Spacing.
+- Components.
+- Motion principles.
+
+PHASE 3 — CORE IMPLEMENTATION
+
+Build the complete page structure and responsive layouts.
+
+PHASE 4 — MOTION IMPLEMENTATION
+
+Implement the major scroll animations, pinned sections, SVG drawing, image reveals, and custom interactions.
+
+PHASE 5 — VISUAL ASSETS
+
+Create or integrate all required original illustrations and graphics.
+
+PHASE 6 — RESPONSIVE OPTIMIZATION
+
+Refine tablet and mobile experiences.
+
+PHASE 7 — TESTING AND REFINEMENT
+
+Run the application, inspect the complete experience, fix issues, and verify interactions.
+
+Do not claim an animation is complete unless it has actually been implemented and tested.
+
+Do not replace missing functionality with comments, placeholders, or static approximations without explicitly reporting it.
+
+---
+
+# 14. FINAL DEVELOPMENT REPORT
+
+After implementation, provide a comprehensive report.
+
+The report must include:
+
+## A. Project Overview
+
+What was built and how the creative direction was translated into the website.
+
+## B. Technology Stack
+
+List the exact technologies and installed versions.
+
+## C. Website Structure
+
+Describe each section and its implementation status.
+
+## D. Animation Inventory
+
+For every major animation, provide:
+
+- Section name.
+- Animation name.
+- Trigger type.
+- Scroll behavior.
+- Technology used.
+- Implementation file.
+- Testing status.
+
+## E. Asset Inventory
+
+List all created graphics, illustrations, SVGs, and other visual assets.
+
+## F. Performance Report
+
+Provide actual measured results where available.
+
+## G. Responsive Report
+
+Describe desktop, tablet, and mobile implementation.
+
+## H. Known Issues
+
+List unfinished functionality, visual inconsistencies, performance issues, and technical limitations.
+
+## I. Recommended Improvements
+
+Identify the most important opportunities for refinement.
+
+## J. Final Acceptance Checklist
+
+Provide a checklist showing what is complete, partially complete, or not implemented.
+
+---
+
+# FINAL CREATIVE REQUIREMENT
+
+The finished website must feel like an award-level experimental digital portfolio.
+
+It should be visually close to the supplied reference in its design philosophy, editorial compositions, architectural illustrations, and especially its scroll-driven animation language.
+
+However, it must tell a different story:
+
+This is the digital world of Amir Moradsaleh.
+
+Every section, visual, transition, and interaction must reinforce his identity as a designer who understands both visual communication and the technology behind digital experiences.
+
+Prioritize originality, motion quality, visual precision, and narrative coherence.
+
+**Build the complete experience. Do not settle for a generic portfolio.**

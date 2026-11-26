@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-ivory: #F2F1E9;
+  --color-stone-draft: #E8E7DE;
+  --color-ink: #252522;
+  --color-graphite: #77776F;
+  --color-hairline: #C9C8BE;
+  --color-vermilion: #F04427;
+}
+
+:root {
+  --bg-primary: #F2F1E9;
+  --bg-secondary: #E8E7DE;
+  --ink-primary: #252522;
+  --ink-secondary: #77776F;
+  --line-hairline: #C9C8BE;
+  --accent-vermilion: #F04427;
+  --surface-pure: #FFFFFF;
+
+  --ease-architectural: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    background-color: var(--bg-primary);
+    color: var(--ink-primary);
+    font-family: var(--font-sans);
+    scroll-behavior: auto;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--ink-primary);
+    overflow-x: clip;
+    font-feature-settings: "ss01" on, "cv01" on;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: #F04427;
+    color: #FFFFFF;
+  }
+}
+
+/* Lenis smooth scroll recommendations */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Architectural hairline utility */
+.arch-hairline-b {
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.arch-hairline-t {
+  border-top: 1px solid var(--line-hairline);
+}
+
+.arch-hairline-r {
+  border-right: 1px solid var(--line-hairline);
+}
+
+.arch-hairline-l {
+  border-left: 1px solid var(--line-hairline);
+}
+
+.arch-hairline-all {
+  border: 1px solid var(--line-hairline);
+}
+
+/* Subtle architectural drafting paper grid pattern */
+.arch-blueprint-bg {
+  background-image:
+    linear-gradient(to right, rgba(201, 200, 190, 0.32) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 200, 190, 0.32) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Smooth focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-vermilion);
+  outline-offset: 2px;
+}
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
